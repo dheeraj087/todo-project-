@@ -1,18 +1,18 @@
 let imgobject = {
-  1: `<div class="mobile2"><img   src="new img/img1.png" alt="mobile2"  style="height: 69vh ;"></div>`,
-  2: '<div class="mobile2"><img   src="new img/images1.png" alt="mobile2"  style="height: 69vh ;"></div>',
-  3: '<div class="mobile2"><img   src="new img/img2.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
-  4: '<div class="mobile2"><img   src="new img/myimage1.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
-  5: '<div class="mobile2"><img   src="new img/myimage2.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
-  6: '<div class="mobile2"><img   src="new img/myimage3.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
-  7: '<div class="mobile2"><img   src="new img/myimage4.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
-  8: '<div class="mobile2"><img   src="new img/myimage5.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
-  9: '<div class="mobile2"><img   src="new img/myimage6.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
-  10: '<div class="mobile2"><img src="new img/myimage7.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
-  11: '<div class="mobile2"><img src="new img/myimage8.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
-  12: '<div class="mobile2"><img src="new img/myimage9.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
-  13: '<div class="mobile2"><img src="new img/myimage10.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
-  14: '<div class="mobile2"><img src="new img/myimage11.jpg" alt="mobile2"  style="height: 69vh ;"></div>',
+  1: `<div class="mobile2"><img   src="new img/img1.webp" alt="mobile2"  style="height: 69vh ;"></div>`,
+  2: '<div class="mobile2"><img   src="new img/images1.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  3: '<div class="mobile2"><img   src="new img/img2.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  4: '<div class="mobile2"><img   src="new img/myimage1.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  5: '<div class="mobile2"><img   src="new img/myimage2.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  6: '<div class="mobile2"><img   src="new img/myimage3.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  7: '<div class="mobile2"><img   src="new img/myimage4.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  8: '<div class="mobile2"><img   src="new img/myimage5.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  9: '<div class="mobile2"><img   src="new img/myimage6.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  10: '<div class="mobile2"><img src="new img/myimage7.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  11: '<div class="mobile2"><img src="new img/myimage8.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  12: '<div class="mobile2"><img src="new img/myimage9.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  13: '<div class="mobile2"><img src="new img/myimage10.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  14: '<div class="mobile2"><img src="new img/myimage11.webp" alt="mobile2"  style="height: 69vh ;"></div>',
 };
 
 function changeimg() {
@@ -226,35 +226,4 @@ function typeWriter() {
   }
 }
 setInterval(typeWriter, 300);
-function allobj(name, diseribe){
-  this.diseribe=diseribe
-  this.name=name
-}
-let name = document.querySelector("#nameTodo");
-let but = document.querySelector(".addTodo");
-let dheeraj = document.querySelector("#dheeraj");
-let deletetodolist = document.querySelector("#delete");
-let body = document.querySelector(".add");
-i=0
-let alltodo=[];
-but.addEventListener('click',function(e){
-  e.preventDefault
 
-  console.log(but);
-  console.log(dheeraj.value);
-  let obj = new allobj(name.value,dheeraj.value)
-  alltodo.push(obj)  
-  console.log(alltodo[i].diseribe);
-  body.textContent=alltodo[i].name,alltodo[i].diseribe
-  console.log(i);
-i++
-})
-function addTodo() {
-}
-addTodo();
-function deletetodo() {
-  // deletetodolist.addEventListener('click',funcion(){
-    
-  // })
-}
-deletetodo();

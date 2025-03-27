@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1d2633;
+  margin-top: 0;
+  padding: 1px;
+}
+
+h1 {
+  margin-top: 60px;
+  background: linear-gradient(
+    90deg,
+    rgb(255, 177, 177),
+    rgb(240, 180, 180),
+    rgb(255, 156, 156)
+  );
+  transform: translate(70%);
+  background: linear-gradient(145deg, #B3B4B7, #ffffff);
+  border-radius: 36%;
+  box-shadow: inset 6.91px 6.91px 6px #5d5e60, inset 1.91px -2.91px 6px #c9c9c9;
+  font-size: 2.9vw;
+  text-align: center;
+  height: 8vh;
+  border-radius: 9px;
+  color: rgb(17, 16, 16);
+  width: 40vw;
+  text-shadow: 3px 0px rgba(0, 0, 0, 0.148);
+}
+.created{
+    background-color: #13de35;
+    height: 7vh;
+    width: 15vw;
+    border: none;
+    margin-left: 20px;
+}
+form{
+    display: flex;
+    margin-left: 20vw;
+    margin-top: 10vh;
+    flex-direction: column;
+    width: 50vw;
+    height: 50vh;
+    text-align: center;
+    align-items: center;
+}
+form input{
+    margin: 30px;
+    width: 20vw;
+    height: 6vh;
+}
+textarea{
+    resize: none;
+}
+form button{
+    margin: 10px;
+    width: 10vw;
+    height: 6vh;
+    color: beige;
+    background-color: aqua;
+}
+.card{
+    width: 20vw;
+    border-radius:10px ;
+    height: 20vh;
+    background-color: red;
+}
+.card .name{
+    color: #13de35;
+}
