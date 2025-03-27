@@ -1,0 +1,11 @@
+#dheeraj{
+    width: 30vw;
+    height: 30vh;
+    resize: none;
+}
+.form{
+    width: 30vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+}
