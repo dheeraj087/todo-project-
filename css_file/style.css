@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
   margin: 0;
   padding: 0;
@@ -458,4 +459,466 @@ a:active {
   100% {
     transform: scale3d(2.8, 1.5, 1.5) rotate(45deg);
   }
+=======
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+main {
+  width: 100vw;
+  scroll-behavior: smooth;
+  background: linear-gradient(
+    45deg,
+    #dbd7d78f,
+    #605f5f43,
+    #d9d9d9,
+    #d9d9d9,
+    #f5f1f143,
+    #605f5f43,
+    #b1afaf,
+    #e8e8e8,
+    #ecebeb,
+    #eae9e9,
+    #31303043
+  );
+}
+.img2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0.3;
+  z-index: 1;
+  width: 110vw;
+  height: 100%;
+}
+
+main .hero {
+  height: 100vh;
+  padding: 0;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    45deg,
+    #dbd7d78f,
+    #605f5f43,
+    #d9d9d9,
+    #d9d9d9,
+    #f5f1f143,
+    #605f5f43,
+    #b1afaf,
+    #e8e8e8,
+    #ecebeb,
+    #eae9e9,
+    #31303043
+  );
+}
+.logo img {
+  width: 1.7em;
+  margin-right: 10px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.logo {
+  display: flex;
+  align-items: self-start;
+  margin-left: 10px;
+  margin-top: 1rex;
+  text-wrap: nowrap;
+  font-size: 2vw;
+  cursor: pointer;
+}
+.logo p {
+  margin: -15px -10px -30px -10px;
+  font-family: "Poppins", sans-serif, "Roboto";
+  font-weight: 500;
+}
+.nav {
+  margin: 5px 0px 0px;
+  width: 99vw;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 100;
+  overflow: hidden;
+  position: relative;
+  z-index: 4;
+}
+.nav .link {
+  width: 60vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 19px;
+  font-weight: 100;
+  text-transform: capitalize;
+  border-radius: 30px;
+
+  position: relative;
+  margin-right: 3vw;
+}
+a {
+  text-decoration: none;
+  padding-top: 1vw;
+  z-index: 2;
+  overflow: hidden;
+  position: relative;
+  border: solid 1.5px rgb(152, 150, 147);
+  text-align: center;
+  display: inline-block;
+  margin: 1vh;
+  backdrop-filter: blur(120px);
+  box-shadow: inset 1px 1px 10px rgba(22, 6, 6, 0.464),
+    1px 1px 10px rgba(72, 71, 71, 0.216);
+  max-width: 9vw;
+  width: 16vw;
+  height: 2.7vw;
+  text-wrap: nowrap;
+  font-size: 1.5vw;
+  font-family: "Poppins", sans-serif, "Roboto";
+  font-weight: 450;
+  font-style: normal;
+  border-radius: 30px;
+  color: rgb(17, 14, 14);
+  background-color: transparent;
+}
+a:hover {
+  position: relative;
+  color: antiquewhite;
+  text-decoration: underline;
+  transition: text-decoration 1s ease-in;
+  .sli {
+    background-color: #1d1a1a85;
+    position: absolute;
+    margin-left: -7px;
+    top: 0px;
+    height: 50px;
+    width: 17vw;
+    border-radius: 30px;
+    z-index: -4;
+    animation: topto 0.4s linear;
+  }
+}
+a:active {
+  box-shadow: 1px 1px 5px 1px rgba(21, 0, 255, 0.648);
+}
+.started a {
+  width: 13vw;
+  margin: 1vh -6px;
+  background: linear-gradient(to right, #532d0e, #6e1515);
+  border-radius: 5vw;
+  text-align: center;
+  font-size: 1.4vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 350;
+  color: #fff;
+}
+.about a {
+  width: 10vw;
+}
+.text1 {
+  position: relative;
+  z-index: 6;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5vw;
+  font-weight: 800;
+  width: 40vw;
+  color: #3d3c3c;
+  font-size: 1.5vw;
+  margin-top: 11vh;
+}
+.h11 {
+  height: 7vh;
+  width: 43vw;
+  overflow: hidden;
+  text-align: center;
+  font-size: 1.5vw;
+}
+.h12 {
+  height: 7vh;
+  width: 30vw;
+  overflow: hidden;
+  text-align: end;
+  font-size: 1.4vw;
+}
+.h11 h1 {
+  animation: topt 2s ease-in-out;
+  font-family: "Poppins", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+.h12 h1 {
+  font-family: "poppins", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  animation: topt 2s ease-in-out;
+}
+.text1 :nth-child(1) {
+  color: rgb(0, 0, 0);
+  font-family: "poppins",sans-serif, cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+.text1 :nth-child(2) {
+  color: rgb(17, 16, 16);
+  margin-left: 78px;
+  font-family: "Poppins", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+.text1 :nth-child(3) {
+  color: rgb(51, 0, 0);
+  font-family: "Poppins", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: initial;
+  text-transform: capitalize;
+  font-size: 1.3vw;
+  margin-top: 20px;
+}
+.typewriter {
+  font-size: 2vw;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.undertext p {
+  font-family: "Poppins", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6vw;
+}
+.undertext {
+  position: relative;
+  color: rgb(18, 18, 18);
+  margin-top: -70px;
+  width: 14vw;
+  left: 80vw;
+}
+.undertext img {
+  width: 12vw;
+  height: 22vh;
+  position: relative;
+}
+
+.img {
+  width: 21vw;
+  height: 85vh;
+  margin-left: 44vw;
+  bottom: 50vh;
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+.imgmobile {
+  position: relative;
+  top: -42.6vh;
+  right: -5vw;
+  z-index: 1;
+  border-radius: 50px;
+}
+.mobile2 img {
+  width: 16vw;
+  position: absolute;
+  top: 42vh;
+  margin-left: -5vw;
+  border-radius: 20px;
+  z-index: 1;
+}
+.imgcover {
+  position: relative;
+  top: -7.5vh;
+  left: 4.1vw;
+  overflow: hidden;
+  background-color: black;
+  height: 66vh;
+  width: 15.8vw;
+  z-index: 2;
+}
+.img img {
+  left: 0;
+  position: absolute;
+  right: 2vw;
+  z-index: 3;
+  height: 85vh;
+}
+.trans {
+  background-color: #fff;
+  cursor: pointer;
+  animation: roto 1s ease-in linear infinite;
+}
+
+.downlode {
+  position: relative;
+  bottom: 92vh;
+  margin-left: 0px;
+  width: 36vw;
+  display: flex;
+  flex-direction: row;
+  text-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.downlode .getapp img {
+  background-color: #000;
+  color: #e8e8e8;
+  width: 18vw;
+  text-align: center;
+  height: 5vw;
+  border-radius: 1vw;
+}
+.downlode .getapp {
+  background-color: #000;
+  width: 18vw;
+  height: 5vw;
+  border-radius: 1vw;
+  margin-left: 20px;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  left: -2vw;
+  /* background-color: #020101; */
+  margin-left: 2vw;
+  margin-top: 4vh;
+  padding-left: 2vw;
+  bottom: 89vh;
+}
+.info2 {
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1.7vw;
+  font-style: normal;
+}
+.addvar {
+  margin-right: 2vw;
+  padding-bottom: 0.5vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 2vw;
+}
+.addvar p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 2vw;
+}
+.info svg {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  width: 2.5vw;
+  height: 2.5vw;
+  color: rgb(255, 0, 0);
+}
+.soclemidia {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  flex-wrap: nowrap;
+  text-wrap: nowrap;
+  z-index: 9;
+}
+.soclemidia p{
+  font-size: 1.5vw;
+}
+.bx {
+  font-size: 2.6vw;
+  margin-right: 4px;
+  width: 3vw;
+  height: 3vw;
+  padding: 1px;
+  margin-top: 1vh;
+  color: #f5f5f5;
+}
+.h13 {
+  font-weight: 900;
+  font-family: "poppins" sans-serif;
+}
+@keyframes topto {
+  0% {
+    margin-top: 30px;
+    text-decoration: none;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+@keyframes topt {
+  0% {
+    opacity: 0;
+    margin-top: 30px;
+  }
+  90% {
+    margin: -4px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@keyframes opacitycouser {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes roto {
+  0% {
+    transform: scale3d(1, 1, 1) rotate(0deg);
+  }
+  25% {
+    transform: scale3d(2.2, 1.5, 1.5) rotate(10deg);
+  }
+  50% {
+    transform: scale3d(2.4, 1.5, 1.5) rotate(25deg);
+  }
+  75% {
+    transform: scale3d(2.6, 1.5, 1.5) rotate(35deg);
+  }
+  100% {
+    transform: scale3d(2.8, 1.5, 1.5) rotate(45deg);
+  }
+>>>>>>> f124e84 (frist repo)
 }

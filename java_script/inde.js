@@ -73,7 +73,6 @@ function login() {
       );
     }
     form.addEventListener("click", (event) => {
-
       let gmail = "";
       gmail = inputvalueGmail.value;
       gmail = gmail.trim();
@@ -121,7 +120,6 @@ function login() {
             console.log(key);
             valid2 = true;
           }
-          
         }
         if (!valid1) {
           console.log("Add at least one special character");
@@ -136,17 +134,17 @@ function login() {
           console.log("num");
           classname = ".password";
           sms = "add a number";
-          return errorValue = 0;
+          return (errorValue = 0);
         }
-        if (!valid1&&!valid2) {
+        if (!valid1 && !valid2) {
           console.log("Add at least one number");
           console.log("num");
           classname = ".password";
           sms = "Add at least one number or chereter";
-          return errorValue = 0;
+          return (errorValue = 0);
         }
       }
-      errorValue= passwordvalid(password);
+      errorValue = passwordvalid(password);
       function chakeError(errornum, className, sms) {
         if (errornum === 0) {
           console.log(className);
@@ -161,14 +159,13 @@ function login() {
             errorValue = 1;
             inputvaluepassword.setAttribute("type", "tex");
           });
-          if (errorValue===1) {
+          if (errorValue === 1) {
             event.preventDefault();
           }
         }
       }
       chakeError(errorValue, classname, sms);
     });
-
   }
   loginForm();
 
@@ -221,7 +218,7 @@ function typeWriter() {
       typeWriterElement.style.color = `rgb(${r1},${r2},${r3})`;
       typeWriterElement.style.fontFamily = `"poppins", serif`;
       typeWriterElement.style.borderRight = "solid rgb(255, 255, 0) 3px";
-    }   
+    }
   } else {
     index2 = 0;
     index = 0;
@@ -229,4 +226,35 @@ function typeWriter() {
   }
 }
 setInterval(typeWriter, 300);
+function allobj(name, diseribe){
+  this.diseribe=diseribe
+  this.name=name
+}
+let name = document.querySelector("#nameTodo");
+let but = document.querySelector(".addTodo");
+let dheeraj = document.querySelector("#dheeraj");
+let deletetodolist = document.querySelector("#delete");
+let body = document.querySelector(".add");
+i=0
+let alltodo=[];
+but.addEventListener('click',function(e){
+  e.preventDefault
 
+  console.log(but);
+  console.log(dheeraj.value);
+  let obj = new allobj(name.value,dheeraj.value)
+  alltodo.push(obj)  
+  console.log(alltodo[i].diseribe);
+  body.textContent=alltodo[i].name,alltodo[i].diseribe
+  console.log(i);
+i++
+})
+function addTodo() {
+}
+addTodo();
+function deletetodo() {
+  // deletetodolist.addEventListener('click',funcion(){
+    
+  // })
+}
+deletetodo();
