@@ -18,7 +18,7 @@ let imgobject = {
 function changeimg() {
   let imgmobile = document.querySelector(".imgmobile");
   let imgplus = 0;
-  let imgplus2 = -1;
+  let imgplus2 = 0;
   setInterval(() => {
     if (imgplus === 14) {
       imgplus = 1;
