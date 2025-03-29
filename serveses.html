@@ -2,13 +2,25 @@
 <html lang="en">
   <head>
     <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
       href="https://fonts.googleapis.com/css2?family=Miss+Fajardose&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Microbe&family=Waterfall&display=swap"
       rel="stylesheet"
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>serveses of todo</title>
-    <link rel="shortcut icon" href="new img/images1.webp" type="image/x-icon">
+    <link rel="shortcut icon" href="new img/images1.webp" type="image/x-icon" />
+
     <link rel="stylesheet" href="css_file/serveses.css" />
   </head>
   <body>
@@ -26,54 +38,102 @@
             <img src="new img/images1.webp" alt="logo" />
           </div>
           <div class="icon">
-            <i class="sidenavicon" title="add task">1</i>
-            <i class="sidenavicon">2</i>
-            <i class="sidenavicon">3</i>
-            <i class="sidenavicon">4</i>
-            <i class="sidenavicon">5</i>
+            <button class="iconbut">
+              <i class="sidenavicon material-symbols-outlined" title="add task"
+                >forms_add_on</i
+              >
+            </button>
+            <button class="iconbut">
+              <i class="sidenavicon material-icons" title="category"
+                >category</i
+              >
+            </button>
+            <button class="iconbut">
+              <a href="index.html" target="_blank" rel="noopener noreferrer">
+
+              <i class="sidenavicon material-icons" title="home">home</i>
+            </a>
+
+            </button>
+            <button class="iconbut">
+              <i class="sidenavicon material-icons" title="settings"
+                >settings</i
+              >
+            </button>
+            <button class="iconbut">
+              <i class="material-symbols-outlined" title="delete task"
+                >Delete</i
+              >
+            </button>
+            <button class="iconbut">
+              <i class="material-symbols-outlined" title="menu">menu_open</i>
+            </button>
           </div>
         </div>
-          <div class="dasord">
-            <div class="dshNav">
+
+        <div class="dasord">
+          <div class="dshNav">
             <h2>Dashbord</h2>
-            <input type="search" title="search bar">
-             <i>bs</i>
-             <button class="profile"><img src="new img/images1.webp" alt="profile" title="profile"></button>
+            <div class="serach">
+              <input type="search" title="search bar" />
+              <i class="material-symbols-outlined searchicon">search</i>
+            </div>
+            <i class="material-symbols-outlined bell">notifications</i>
+            <button class="profile">
+              <img src="new img/images1.webp" alt="profile" title="profile" />
+            </button>
           </div>
-            <div class="tab">
-            <div class="recentbox">
+          <div class="tab">
+            <div class="recentbox forJSre">
               <div class="recentTop">
                 <p>Recent Task</p>
-                <button>All  ></button>
+                <button>All ></button>
               </div>
-          </div>
+          <strong>no recent task</strong>
+            </div>
             <div class="recentbox section2">
               <div class="recentTop">
                 <p>Folder</p>
-                <button>All  ></button>
+                <button>All ></button>
               </div>
+            </div>
+            <div class="recentbox section2">
+              <div class="recentTop">
+                <p>Folder</p>
+                <button>All ></button>
+              </div>
+            </div>
+            <div class="recentbox last">
+              <div class="recentTop">
+                <p>Recent Task</p>
+                <button>All ></button>
+              </div>
+            </div>
           </div>
         </div>
-        </div>
       </div>
-      <form class="form">
-        <label for="nameTodo">add your to do list</label>
-        <input
-          type="text"
-          name="todo_name"
-          id="nameTodo"
-          placeholder="enter the todo name"
-        />
-        <textarea
-          name="dheeraj"
-          id="dheeraj"
-          placeholder="discribe your todo"
-        ></textarea>
-      </form>
-      <button type="button" id="delete">delete</button>
-      <button type="button" class="addTodo">add todo</button>
-      <div class="add"></div>
-    </div>
+     <form class="addTask">
+      <h2>Add Task</h2>
+      <input type="text" placeholder="Enter a task " class="taskName">
+      <div class="taskicon">
+        <button class="taskbut"><i class="material-symbols-outlined" id="addsub">+</i></button>
+        <label for="addsub"> Add subtask</label>
+        <button class="taskbut"><i class="material-symbols-outlined">2</i></button>
+        <button class="taskbut"><i class="material-symbols-outlined">3</i></button>
+        <button class="taskbut"><i class="material-symbols-outlined">4</i></button>
+        <button class="taskbut"><i class="material-symbols-outlined">5</i></button>
+      </div>
+      <!-- <div class="dateTime">
+        <label for="date" id="label">x</label>
+        <input type="date" id="date">
+        <label for="stime" id="label">t</label>
+        <input type="time" id="stime">;
+        <label for="etime" id="label">e</label>
+        <input type="time" id="etime">
+      </div> -->
+      <button type="button" >cancle</button>
+      <button type="button" class="addTodo" >add</button>
+     </form>
     <script src="java_script/serveses.js"></script>
   </body>
 </html>

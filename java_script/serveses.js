@@ -1,38 +1,55 @@
-function allobj(name, diseribe){
-    this.diseribe=diseribe
+function allobj(name){
     this.name=name
   }
-  let name = document.querySelector("#nameTodo");
+  let name = document.querySelector(".taskName");
   let but = document.querySelector(".addTodo");
   let dheeraj = document.querySelector("#dheeraj");
   let deletetodolist = document.querySelector("#delete");
-  let body = document.querySelector(".add");
+  let body = document.querySelector(".forJSre");
+  let icon =document.querySelector('.icon');
+  let addTask =document.querySelector('.addTask')
+  let recBoxStr =document.querySelector('.recentbox strong')
+  icon.addEventListener('click',(e)=>{
+   if (e.target.textContent==="forms_add_on") {
+    addTask.style.display="block"
+    
+   }
+   
+  })  
   i=0
   let alltodo=[];
 
   function addTodo() {
+    let chake =1
     but.addEventListener('click',function(e){
-      e.preventDefault
-  
-      console.log(but);
-      console.log(dheeraj.value);
-      let obj = new allobj(name.value,dheeraj.value)
+      if (chake==1) {
+      recBoxStr.style.display="none"
+      let obj = new allobj(name.value)
       alltodo.push(obj)  
-      console.log(alltodo[i].diseribe);
-      console.log(i);
+      // console.log(i,alltodo);
 
     let card = document.createElement("div");
-    card.setAttribute("class","card");
+    card.setAttribute("class","add");
+    let nj=alltodo[i]
+    console.log(i,nj);
+    
     card.innerHTML=
-    `<div class="name"> your work name <pre>${alltodo[i].name}</pre></div>
-    <div class="name"> your work <pre>${alltodo[i].diseribe}</pre></div>
+    `<div>${alltodo[i].name}</div>
     `
     body.appendChild(card)
-    })   
+    
     i++
+    addTask.style.display="none"
+    chake==0
+      }
+  
+
+    
+    })   
   }
   addTodo();
   function deletetodo() {
    
   }
   deletetodo();
+  

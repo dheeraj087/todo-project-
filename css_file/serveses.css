@@ -1,12 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 .main {
+  background-image: url("wave.png"); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100vw; 
   width: 100vw;
+  height: 150vh;
   background-color: #1d2633;
-  margin-top: 0;
+  margin: 0;
   padding: 1px;
 }
 
@@ -30,32 +36,7 @@ h1 {
   width: 40vw;
   text-shadow: 3px 0px rgba(0, 0, 0, 0.148);
 }
-.created {
-  background-color: #13de35;
-  height: 7vh;
-  width: 15vw;
-  border: none;
-  margin-left: 20px;
-}
-form {
-  display: flex;
-  margin-left: 20vw;
-  margin-top: 10vh;
-  flex-direction: column;
-  width: 50vw;
-  height: 50vh;
-  text-align: center;
-  align-items: center;
-  visibility: collapse;
-}
-form input {
-  margin: 30px;
-  width: 20vw;
-  height: 6vh;
-}
-textarea {
-  resize: none;
-}
+
 .logo {
   display: flex;
   text-align: center;
@@ -68,37 +49,14 @@ textarea {
 }
 .logo p {
   padding-top: 0.7vw;
-  color: beige;
+  color: rgb(0, 0, 0);
   font-family: sans-serif;
   font-size: 1.7vw;
-}
-/* button {
-  margin: 10px;
-  width: 10vw;
-  height: 6vh;
-  color: beige;
-  background-color: aqua;
-} */
-.add {
-  display: flex;
-  gap: 2vw;
-  margin-left: 2vw;
-}
-.card {
-  width: 17vw;
-  border-radius: 10px;
-  height: 35vh;
-  background-color: rgb(255, 189, 189);
-  position: relative;
-  top: -150px;
-}
-.card .name {
-  color: #13de35;
 }
 .mainbox {
   background-color: #fbfbfbaf;
   width: 75vw;
-  height: 89vh;
+  height: 93vh;
   position: relative;
   top: 8vh;
   left: 15vw;
@@ -112,7 +70,7 @@ textarea {
 .sidenave {
   position: relative;
   z-index: -1;
-  height: 89vh;
+  height: 93vh;
   width: 8vw;
   border-radius: 10px 0px;
   background-color: #001a04;
@@ -121,32 +79,86 @@ textarea {
 .icon {
   display: flex;
   flex-direction: column;
-  margin: 15vh 2vw;
+  margin: 15vh 3vw 0px 2vw;
   justify-content: space-between;
   height: 35vh;
+  cursor: pointer;
+}
+.sidenavicon {
+  font-size: 2.5vw;
+}
+.iconbut a {
+  text-decoration: none;
+  color: white;
+}
+.iconbut {
+  height: 3vw;
+  width: 3vw;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 3vw;
+}
+.serach {
+  height: 5vh;
+  width: 30vw;
+}
+.bell {
+  position: relative;
+  left: 5vw;
+  font-size: 3vw;
+  cursor: pointer;
+}
+.searchicon {
+  padding: 2px;
+  position: relative;
+  left: 24vw;
+  bottom: 5vh;
+  font-size: 2vw;
+  color: #717070;
+  cursor: pointer;
 }
 .dasord {
-  z-index: 2;
   margin-left: -2vw;
   width: 69vw;
+  height: 93vh;
   border-radius: 15px;
   background-color: rgb(162, 196, 194);
 }
 .tab {
-  display: flex;
-  gap: -20vw;
+  display: grid;
+  grid-template-columns: repeat(2, 24vw);
+  grid-template-rows: repeat(2, 47vh);
+  height: 77vh;
+  margin-left: -1vw;
+}
+.last {
+  margin-bottom: 10vh;
+  position: relative;
+  bottom: 15vh;
 }
 .recentbox {
+  border-radius: 15px;
+  background: #c3bfbf;
+  box-shadow: inset 15px 15px 10px #4a4949, inset -15px -15px 10px #e7e7e7,
+    5px 5px 15px black;
   margin: -2vh -1vw 0px 2.5vw;
-  background-color: rgb(207, 212, 213);
+  border: #a2c4c2d6 solid 1.5px;
   width: 22vw;
   padding: 1px;
   height: 45vh;
   border-radius: 20px;
+  overflow: hidden;
+}
+.recentbox strong{
+  margin: 0vh 5vw;
+position: relative;
+top: 8vh;  
 }
 .section2 {
   height: 30vh;
-  width: 20vw;
+  width: 22vw;
 }
 .recentTop {
   display: flex;
@@ -158,7 +170,6 @@ textarea {
   display: flex;
   width: 100%;
   height: 7vh;
-  /* background-color: #13de35; */
   justify-content: space-between;
 }
 .dshNav input {
@@ -168,6 +179,7 @@ textarea {
   border-radius: 20px;
   margin-left: -2vw;
   padding: 0.5vw;
+  cursor: pointer;
 }
 .profile {
   width: 3vw;
@@ -177,6 +189,7 @@ textarea {
   border: 1px solid rgb(255, 255, 255);
   position: relative;
   z-index: 3;
+  cursor: pointer;
 }
 .profile img {
   margin-right: 4vw;
@@ -187,12 +200,13 @@ textarea {
 }
 .recentTop button {
   border: none;
-  width: 3vw;
+  width: 4vw;
   margin: 0.5vw 1vw;
   background-color: transparent;
   color: #404040;
   font-size: 1.5vw;
   font-weight: 500;
+  cursor: pointer;
   font-family: "poppins", sans-serif;
 }
 .recentTop p {
@@ -200,10 +214,62 @@ textarea {
   font-size: 1.5vw;
   font-family: "poppins", sans-serif;
   font-weight: 500;
-  color: #000;
+  color: #000000;
 }
 .dasord h2 {
   font-family: "Waterfall", cursive;
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 3vw;
   font-style: normal;
+}
+.addTask {
+  display: none;
+  width: 33vw;
+  height: 70vh;
+  position: relative;
+  z-index: 32;
+  left: 35vw;
+  bottom: 79vh;
+  background-color:transparent;
+  backdrop-filter: blur(15px);
+  border: solid black 1px;
+  border-radius: 10px;
+  box-shadow: -10px -10px 20px black,1px 1px 10px;
+}
+.addTask input{
+  height: 10vh;
+  width: 25vw;
+  margin-left: 4vw;
+  border-radius: 5px;
+  border: 1px;
+  padding-left: 1vw;
+  margin-bottom: 1vw;
+}
+.taskicon{
+  display: flex;
+  height: 5vh;
+  width: 25vw;
+  margin-left: 4vw;
+  margin-bottom: 1vw;
+  justify-content: space-between;
+}
+.taskicon button{
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+.taskicon label{
+  font-size: 1.3vw;
+  margin: 1vh -1vw;
+}
+.taskicon :nth-child(3){
+  margin-left:6vw;
+}
+.add{
+  color: #1d2633;
+  width: 20vw;
+  margin: 1vw;
+  height: 7vh;
+  border-bottom:2px dotted #1d2633;
+  /* background-color: #001a04; */
 }
