@@ -1,18 +1,18 @@
 let imgobject = {
-  1: `<div class="mobile2"><img   src="new img/img1.webp" alt="mobile2"  style="height: 69vh ;"></div>`,
-  2: '<div class="mobile2"><img   src="new img/images1.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  3: '<div class="mobile2"><img   src="new img/img2.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  4: '<div class="mobile2"><img   src="new img/myimage1.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  5: '<div class="mobile2"><img   src="new img/myimage2.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  6: '<div class="mobile2"><img   src="new img/myimage3.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  7: '<div class="mobile2"><img   src="new img/myimage4.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  8: '<div class="mobile2"><img   src="new img/myimage5.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  9: '<div class="mobile2"><img   src="new img/myimage6.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  10: '<div class="mobile2"><img src="new img/myimage7.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  11: '<div class="mobile2"><img src="new img/myimage8.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  12: '<div class="mobile2"><img src="new img/myimage9.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  13: '<div class="mobile2"><img src="new img/myimage10.webp" alt="mobile2"  style="height: 69vh ;"></div>',
-  14: '<div class="mobile2"><img src="new img/myimage11.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  1: `<div class="mobile2"><img  loading="lazy"  src="new img/img1.webp" alt="mobile2"  style="height: 69vh ;"></div>`,
+  2: '<div class="mobile2"><img  loading="lazy"  src="new img/images1.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  3: '<div class="mobile2"><img  loading="lazy"  src="new img/img2.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  4: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage1.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  5: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage2.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  6: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage3.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  7: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage4.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  8: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage5.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  9: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage6.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  10: '<div class="mobile2"><img loading="lazy" src="new img/myimage7.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  11: '<div class="mobile2"><img loading="lazy" src="new img/myimage8.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  12: '<div class="mobile2"><img loading="lazy" src="new img/myimage9.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  13: '<div class="mobile2"><img loading="lazy" src="new img/myimage10.webp" alt="mobile2"  style="height: 69vh ;"></div>',
+  14: '<div class="mobile2"><img loading="lazy" src="new img/myimage11.webp" alt="mobile2"  style="height: 69vh ;"></div>',
 };
 
 function changeimg() {
@@ -226,4 +226,3 @@ function typeWriter() {
   }
 }
 setInterval(typeWriter, 300);
-
