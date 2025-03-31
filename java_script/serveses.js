@@ -42,16 +42,23 @@ addTodo();
 
 let deleteTask;
 function deletetodo() {
-  let addinput = 3;
-
-  body.addEventListener("click", (e) => {
-    e.stopPropagation();
+  function nu(e) {
     if (e.target.classList.contains("add")) {
-      // deleteTask = e.target.closest(".add");
+      e.stopPropagation();
+      // deleteTask = e.target.closest(".add"); select karanre ke kam me ata hai
       deleteTask = e.target;
-      deleteTask.style.backgroundColor = "#dbafa7";
+      deleteTask.style.color = "red";
+      setTimeout(() => {
+        // deleteTask.style.color="black"
+        const de = deletetodo();
+        deleteTask.style.color = "black";
+        removeEventListener("click", de);
+        deleteTask = null;
+      }, 2000);
     }
-  });
+  }
+  body.addEventListener("click", nu);
+  return nu;
 }
 let targe = null;
 
@@ -60,37 +67,44 @@ deletetodo();
 function edit() {
   let edittask = null;
   function h2() {
-  function hendlar() {
-    console.log(name.value);
-    name.value;
-    console.log(name.name);
-    edittask.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${name.value.trim()}</div>
+    function hendlar() {
+      if (edittask !== null) {
+        const de = deletetodo();
+        body.removeEventListener("click", de);
+       
+        edittask.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${name.value.trim()}</div>
     `;
-    edittask.style.color = "black";
-    addTask.style.display = "none";
-    but.style.display = "block";
-    removeEventListener("click",hendlar)
-  }
-  console.log("select your task you want to eidt ");
-  body.addEventListener("click", function (e) {
-    if (e.target.className === "add") {
-      deleteTask = null;
-      edittask = e.target;
-        console.log("task is selected =", edittask);
+    alltodo.name= name.value;
+        edittask.style.color = "black";
+        addTask.style.display = "none";
+        but.style.display = "block";
+        name.value = "";
+        eidtbut.removeEventListener("click", hendlar);
+      }
+    }
+    body.addEventListener("click", function selecttask(e) {
+      if (e.target.className === "add") {
+        deleteTask = null;
+        edittask = e.target;
         if (edittask !== null) {
           edittask.style.color = "blue";
           addTask.style.display = "block";
           but.style.display = "none";
           eidtbut.style.display = "block";
-          eidtbut.addEventListener("click", hendlar
-            
-          );
+          eidtbut.removeEventListener("click", hendlar);
+          eidtbut.addEventListener("click", hendlar);
+          body.removeEventListener("click", selecttask);
         }
       }
     });
   }
   let eidt = document.querySelector(".eidt");
-   eidt.addEventListener("click", h2);
+  eidt.addEventListener("click", h2);
+  cancle.addEventListener("click", function cencle(e) {
+    edittask.style.color = "black";
+    eidtbut.removeEventListener("click", hendlar);
+    cancle.removeEventListener("click", cencle);
+  });
 }
 edit();
 icon.addEventListener("click", (e) => {
