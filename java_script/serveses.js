@@ -26,8 +26,6 @@ function addTodo() {
 
     let card = document.createElement("div");
     card.setAttribute("class", "add");
-    let nj = alltodo[i];
-
     card.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${alltodo[i].name}</div>
     `;
     body.appendChild(card);
@@ -51,7 +49,7 @@ function deletetodo() {
       setTimeout(() => {
         // deleteTask.style.color="black"
         const de = deletetodo();
-        deleteTask.style.color = "black";
+        // deleteTask.style.color = "black";
         removeEventListener("click", de);
         deleteTask = null;
       }, 2000);
@@ -71,10 +69,10 @@ function edit() {
       if (edittask !== null) {
         const de = deletetodo();
         body.removeEventListener("click", de);
-       
+
         edittask.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${name.value.trim()}</div>
     `;
-    alltodo.name= name.value;
+        alltodo.name = name.value;
         edittask.style.color = "black";
         addTask.style.display = "none";
         but.style.display = "block";
@@ -127,3 +125,95 @@ icon.addEventListener("click", (e) => {
     deleteTask.remove();
   }
 });
+function conplete() {
+  body.addEventListener("change", function (e) {
+    if (e.target.matches(".addinput input[type='checkbox']")) {
+      let task = e.target.closest(".add");
+      let tas = e.target.closest("input[type='checkbox']");
+      if (tas) {
+        task.style.backgroundColor = "gray";
+        task.style.textDecoration = "line-through";
+        task.style.opacity = 0.6;
+        task.innerHTML = `<div class="addinput"> <input type="checkbox" checked/>complited</div>`;
+      }
+    }
+  });
+}
+conplete();
+
+function dateSelected() {
+  let sInput = document.querySelector("#stime");
+  let slabel = document.querySelector(".slabel p");
+  let eInput = document.querySelector("#etime");
+  let elabel = document.querySelector(".elabel p");
+  console.log(sInput, eInput, slabel, elabel);
+  sInput.addEventListener("change", () => {
+    let svalue = null;
+    svalue = sInput.value;
+    slabel.textContent = svalue + " 😁 ";
+    scontrolEvent(svalue);
+  });
+  function scontrolEvent(svalue) {
+    if (svalue === null) {
+      return alert("plz selecte the time ");
+    }
+    let [hours, minutes] = svalue.split(":");
+    let now = new Date();
+    let tragetdate = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      hours,
+      minutes,
+      0,
+      0
+    );
+    if (tragetdate <= now) {
+      tragetdate.setDate(now.getDate() + 1);
+    }
+    let dealy = tragetdate - now;
+    console.log(tragetdate, "\n now \n", dealy);
+    setInterval(() => {
+      alert("your time is start in 1 min be ready");
+    }, dealy);
+  }
+  sInput.addEventListener("change", () => {
+    let svalue = null;
+    svalue = sInput.value;
+    slabel.textContent = svalue + " 😁 ";
+    scontrolEvent(svalue);
+  });
+  
+  // end time
+  eInput.addEventListener("change", () => {
+    let evalue = null;
+    evalue = eInput.value;
+    elabel.textContent = evalue + " 😁 ";
+    econtrolEvent(evalue);
+  });
+  function econtrolEvent(evalue) {
+    if (evalue === null) {
+      return alert("plz selecte the time ");
+    }
+    let [ehours, einutes] = evalue.split(":");
+    let now = new Date();
+    let etragetdate = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      ehours,
+      einutes,
+      0,
+      0
+    );
+    if (etragetdate <= now) {
+      etragetdate.setDate(etragetdate.getDate() + 1);
+    }
+    let edealy = etragetdate - now;
+    console.log(etragetdate, "\n now \n", edealy);
+    setInterval(() => {
+      alert("your time is end in 1");
+    }, edealy);
+  }
+}
+dateSelected();
