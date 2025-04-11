@@ -296,7 +296,7 @@ a:active {
 .trans {
   background-color: #fff;
   cursor: pointer;
-  animation: roto 10s ease-in linear infinite;
+  animation: roto 4s ease-in linear infinite;
 }
 
 .downlode {
