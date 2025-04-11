@@ -100,7 +100,6 @@ function edit() {
   eidt.addEventListener("click", h2);
   cancle.addEventListener("click", function cencle(e) {
     edittask.style.color = "black";
-    eidtbut.removeEventListener("click", hendlar);
     cancle.removeEventListener("click", cencle);
   });
 }
@@ -146,7 +145,6 @@ function dateSelected() {
   let slabel = document.querySelector(".slabel p");
   let eInput = document.querySelector("#etime");
   let elabel = document.querySelector(".elabel p");
-  console.log(sInput, eInput, slabel, elabel);
   sInput.addEventListener("change", () => {
     let svalue = null;
     svalue = sInput.value;
@@ -172,8 +170,7 @@ function dateSelected() {
       tragetdate.setDate(now.getDate() + 1);
     }
     let dealy = tragetdate - now;
-    console.log(tragetdate, "\n now \n", dealy);
-    setInterval(() => {
+    setTimeout(() => {
       alert("your time is start in 1 min be ready");
     }, dealy);
   }
@@ -183,7 +180,7 @@ function dateSelected() {
     slabel.textContent = svalue + " 😁 ";
     scontrolEvent(svalue);
   });
-  
+
   // end time
   eInput.addEventListener("change", () => {
     let evalue = null;
@@ -210,9 +207,10 @@ function dateSelected() {
       etragetdate.setDate(etragetdate.getDate() + 1);
     }
     let edealy = etragetdate - now;
-    console.log(etragetdate, "\n now \n", edealy);
-    setInterval(() => {
+    setTimeout(() => {
       alert("your time is end in 1");
+      const neww =document.querySelector('.audio');
+      neww.play;
     }, edealy);
   }
 }

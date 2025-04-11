@@ -218,7 +218,6 @@ h1 {
   font-family: "poppins", sans-serif;
   font-weight: 500;
   color: #000000;
-
 }
 .dasord h2 {
   font-family: "Waterfall", cursive;
@@ -266,6 +265,7 @@ h1 {
   font-size: 1.3vw;
   margin: 1vh -1vw;
 }
+
 .taskicon :nth-child(3) {
   margin-left: 6vw;
 }
@@ -279,13 +279,11 @@ h1 {
   position: relative;
   z-index: 5;
 }
-.add:active{
+.add:active {
   transform: scale(1.2);
   transition: all ease-in 1s;
- 
- 
 }
-.eidt:active{
+.eidt:active {
   transform: scale(1.3);
   transition: transform 0.4 ease;
 }
@@ -303,11 +301,11 @@ h1 {
   width: 1.6vw;
   height: 1.6vw;
 }
-.dateTime{
+.dateTime {
   display: flex;
   /* gap: 0vw; */
 }
-.dateTime input{
+.dateTime input {
   position: relative;
   opacity: 0;
   width: 10vw;
@@ -315,13 +313,13 @@ h1 {
   margin-right: -2vw;
   z-index: 3;
 }
-#stime{
-left: 4vw;
+#stime {
+  left: 4vw;
 }
-#etime{
+#etime {
   left: 2.3vw;
-  }
-.elabel{
+}
+.elabel {
   position: absolute;
   color: #000000;
   z-index: 2;
@@ -331,20 +329,20 @@ left: 4vw;
   text-align: right;
   padding: 3px;
   padding-top: 10px;
-  margin-left:19vw;
+  margin-left: 19vw;
   background-color: #ff0000;
-  font-family: 'monospace',sans-serif;
+  font-family: "monospace", sans-serif;
   font-size: 1.4vw;
   line-height: normal;
 }
-.elabel p{
+.elabel p {
   display: inline;
 }
-.ee{
+.ee {
   display: inline;
   margin-left: 2.8vw;
 }
-.slabel{
+.slabel {
   position: absolute;
   color: #000000;
   z-index: 2;
@@ -354,16 +352,72 @@ left: 4vw;
   text-align: right;
   padding: 3px;
   padding-top: 10px;
-  margin-left:8vw;
+  margin-left: 8vw;
   background-color: #ff0000;
-  font-family: 'monospace',sans-serif;
+  font-family: "monospace", sans-serif;
   font-size: 1.4vw;
   line-height: normal;
 }
-.slabel p{
+.slabel p {
   display: inline;
 }
-.see{
+.see {
   display: inline;
   margin-left: 2.8vw;
+}
+@media screen and (max-width: 450px) {
+  .mainbox {
+    width: 90vw;
+    height: 54vh;
+    top: 5vh;
+    left: 5vw;
+  }
+  .sidenave {
+    height: 53vh;
+  }
+  .dasord {
+    width: 86vw;
+    height: 53vh;
+  }
+  button {
+    border: none;
+  }
+  button:active {
+    background-color: transparent;
+  }
+  .recentbox {
+    width: 35vw;
+    height: 24vh;
+  }
+  .section2 {
+    height: 41vw;
+    margin-left: 15vw;
+  }
+  .last {
+    bottom: 27vh;
+    left: 12vw;
+  }
+  .mide {
+    margin-left: 2vw;
+    margin-top: -52vw;
+  }
+  * {
+    font-size: 3vw;
+  }
+  .addinput {
+    font-size: 18px;
+  }
+  .addinput input {
+    width: 18px;
+    height: 18px;
+  }
+  .recentTop {
+    margin-top: 12px;
+  }
+  .recentTop p {
+    font-size: 11px;
+  }
+  .recentTop button {
+    font-size: 10px;
+  }
 }

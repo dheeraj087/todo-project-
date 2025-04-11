@@ -27,15 +27,15 @@ function changeimg() {
       imgplus++;
     }
     imgmobile.innerHTML = `${imgobject[imgplus]}` || ""; // agar hame value null mili to khali string rakho
-  }, 3000);
+  }, 300000);
 }
 setInterval(() => {
   let imgmobile = document.querySelector(".imgmobile img");
   imgmobile.className = "trans";
 
   let img = document.querySelector(".trans");
-  img.style.animation = " roto 2.5s ease-in infinite";
-}, 2800);
+  img.style.animation = " roto 550.5s ease-in infinite";
+}, 90800);
 changeimg();
 function login() {
   function visibalLoginForm() {
