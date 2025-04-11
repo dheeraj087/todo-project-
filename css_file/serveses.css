@@ -365,7 +365,7 @@ h1 {
   display: inline;
   margin-left: 2.8vw;
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 750px) {
   .mainbox {
     width: 90vw;
     height: 54vh;
