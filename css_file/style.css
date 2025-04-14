@@ -97,7 +97,6 @@ main {
   font-weight: 100;
   text-transform: capitalize;
   border-radius: 30px;
-
   position: relative;
   margin-right: 3vw;
 }
@@ -271,11 +270,12 @@ a:active {
 .mobile2 img {
   width: 16vw;
   position: absolute;
-  top: 42vh;
+  top: 24vh;
   margin-left: -5vw;
   border-radius: 20px;
   z-index: 1;
 }
+
 .imgcover {
   position: relative;
   top: -7.5vh;
@@ -425,32 +425,69 @@ a:active {
     transform: scale3d(2.8, 1.5, 1.5) rotate(45deg);
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 460px) {
   .img img {
-    top: 16vh;
-    width: 49vw;
-    height: 60vh;
+    left: 20px;
+    top: 16.8vh;
+    width: 61vw;
+    height: 32vh;
   }
   .mobile2 img {
     top: 27vh;
-    width: 21vw;
+    width: 25vw;
+    right: -1vw;
     border-radius: 30px;
   }
+  .nav{
+    margin-left: -6px;
+    width: 100vw;
+  }
+  .mobile2 img{
+    height: 52vh;
+    width: 27vw;
+    margin-top: 16vw;
+  }
+  .imgmobile{
+    top: -52.6vh;
+    right: 0vw;
+  }
+  .hero::after{
+  content: " ";
+  width: 22.5vw;
+  z-index: 2;
+  left: 79vw;
+  height: 10px;
+  top: 41vh;
+  /* backdrop-filter: blur(6px/); */
+  background-color: #BEBCBC;
+  position: absolute;
+  /* background-color: transparent; */
+  }
+  .link{
+    margin-top: 5px;
+  }
   .imgcover {
-    top: -2vh;
-    left: 5.1vw;
-    height: 47vh;
-    width: 24.8vw;
+    top: 17vh;
+    left: 11.1vw;
+    width: 25.8vw;
+    height: 53.5vw;
+    border-radius: 10px;
+    position: absolute
+  }
+  a{
+    margin:  2vw 5.5px;
   }
   .text1 {
     margin-left: -5px;
     font-size: 16px;
   }
   .text1 :nth-child(3) {
-    margin-left: 3vw;
+    margin-left: 5vw;
+    width: 45vw;
     font-size: 10px;
+    margin-bottom: 2vh;
     font-family: "sans-serif";
-    line-height: 4vh;
+    line-height: 2vh;
   }
   .text1 .h13 {
     margin-left: 3vw;
@@ -461,7 +498,7 @@ a:active {
     font-size: 2.5vw;
   }
   .downlode {
-    margin-top: 20px;
+    margin-top: 60px;
     margin-left: -17px;
   }
   .info {
@@ -478,6 +515,7 @@ a:active {
     font-size: 8px;
   }
   .undertext {
+    display: none;
     left: 82vw;
   }
   .undertext img {
@@ -493,16 +531,26 @@ a:active {
   }
   .h11 {
     height: 3.5vh;
+    width: 56vw;
+    height: 3vh;
+    position: relative;
+    bottom: 5vh;
+    font-size: 7px;
   }
   .h12 {
-    width: 28vw;
-    height: 3.5vh;
+    bottom: 6vh;
+    position: relative;
+    width: 40vw;
+    height: 3vh;
+    font-size: 7px;
+    background-color: #fff;
   }
   .text1 :nth-child(2) {
     margin-left: 50px;
   }
   .hero {
-    height: 80vh;
+    width: 100vw;
+    height: 60vh;
   }
   .logo {
     font-size: 3vw;

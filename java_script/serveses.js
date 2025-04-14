@@ -1,7 +1,5 @@
-function allobj(name, sdate, edate) {
+function allobj(name) {
   this.name = name;
-  this.sdate = sdate;
-  this.edate = edate;
 }
 let name = document.querySelector(".taskName");
 let but = document.querySelector(".addTodo");
@@ -17,16 +15,45 @@ icon.addEventListener("click", (e) => {});
 cancle.addEventListener("click", () => (addTask.style.display = "none"));
 i = 0;
 let alltodo = [];
+// save the data in locle storage
+const allTaskSaveObject = {
+  taskName: "",
+  startDtae: null,
+  enddate: null,
+  priorityKey: null,
+};
+function loclestoragesave(data) {
+  localStorage.setItem(data.taskName, JSON.stringify(data));
+}
 
+function showTasksFromLocalStorage() {
+  for (let key in localStorage) {
+    if (localStorage.hasOwnProperty(key)) {
+      let data = JSON.parse(localStorage.getItem(key));
+      if (data && data.taskName) {
+        recBoxStr.style.display = "none";
+        let card = document.createElement("div");
+        card.setAttribute("class", "add");
+        card.innerHTML = `<div class="addinput"> 
+              <input type="checkbox"/> ${data.taskName}
+            </div>`;
+        body.appendChild(card);
+      }
+    }
+  }
+}
 function addTodo() {
   but.addEventListener("click", function (e) {
     recBoxStr.style.display = "none";
     let obj = new allobj(name.value);
     alltodo.push(obj);
-
+    allTaskSaveObject.taskName = alltodo[i].name;
+    loclestoragesave(allTaskSaveObject);
     let card = document.createElement("div");
     card.setAttribute("class", "add");
-    card.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${alltodo[i].name}</div>
+    card.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${
+      JSON.parse(localStorage.getItem(name.value)).taskName
+    }</div>
     `;
     body.appendChild(card);
 
@@ -37,7 +64,7 @@ function addTodo() {
 }
 
 addTodo();
-
+showTasksFromLocalStorage();
 let deleteTask;
 function deletetodo() {
   function nu(e) {
@@ -49,7 +76,7 @@ function deletetodo() {
       setTimeout(() => {
         // deleteTask.style.color="black"
         const de = deletetodo();
-        // deleteTask.style.color = "black";
+        deleteTask.style.color = "black";
         removeEventListener("click", de);
         deleteTask = null;
       }, 2000);
@@ -121,6 +148,9 @@ icon.addEventListener("click", (e) => {
     eidtbut.style.display = "none";
   }
   if (e.target.textContent === "Delete") {
+    let str = deleteTask.textContent;
+    localStorage.removeItem(str.trim());
+    console.log();
     deleteTask.remove();
   }
 });
@@ -139,6 +169,40 @@ function conplete() {
   });
 }
 conplete();
+//  notifeaction system
+
+function checknotifaction() {
+  if ("Notification" in window) {
+    console.log("working");
+
+    return true;
+  } else {
+    return false;
+  }
+}
+function notifactionworkOrnot(checknotifaction) {
+  let notification;
+  let check = checknotifaction();
+  if (check === true) {
+  Notification.requestPermission().then((permission) => {
+      if (permission === "granted") {
+        notification=   new Notification("hellow!", {
+          body: "ye mera pahala notifiction hai ",
+          icon: "new img/images1.webp",
+          link: "http://127.0.0.1:5500/serveses.html",
+        });
+
+        notification.onclick = function(event) {
+          event.preventDefault(); // Default behavior रोकना
+          console.log("igighigihjihjtjt");
+          window.open('http://127.0.0.1:5500/serveses.html', '_blank');
+        };
+      }
+    });
+  } 
+}
+
+
 
 function dateSelected() {
   let sInput = document.querySelector("#stime");
@@ -171,16 +235,11 @@ function dateSelected() {
     }
     let dealy = tragetdate - now;
     setTimeout(() => {
-      alert("your time is start in 1 min be ready");
+      notifactionworkOrnot(checknotifaction);
     }, dealy);
   }
-  sInput.addEventListener("change", () => {
-    let svalue = null;
-    svalue = sInput.value;
-    slabel.textContent = svalue + " 😁 ";
-    scontrolEvent(svalue);
-  });
 
+  
   // end time
   eInput.addEventListener("change", () => {
     let evalue = null;
@@ -209,7 +268,7 @@ function dateSelected() {
     let edealy = etragetdate - now;
     setTimeout(() => {
       alert("your time is end in 1");
-      const neww =document.querySelector('.audio');
+      const neww = document.querySelector(".audio");
       neww.play;
     }, edealy);
   }
