@@ -2,6 +2,7 @@ function allobj(name) {
   this.name = name;
 }
 let name = document.querySelector(".taskName");
+
 let but = document.querySelector(".addTodo");
 let eidtbut = document.querySelector(".eidtbut");
 let deletetodolist = document.querySelector("#delete");
@@ -43,23 +44,65 @@ function showTasksFromLocalStorage() {
   }
 }
 function addTodo() {
-  but.addEventListener("click", function (e) {
-    recBoxStr.style.display = "none";
-    let obj = new allobj(name.value);
-    alltodo.push(obj);
-    allTaskSaveObject.taskName = alltodo[i].name;
-    loclestoragesave(allTaskSaveObject);
-    let card = document.createElement("div");
-    card.setAttribute("class", "add");
-    card.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${
-      JSON.parse(localStorage.getItem(name.value)).taskName
-    }</div>
+  name.addEventListener("keydown", function (e) {
+    e.preventDefault()
+    console.log(e.key);
+    if (e.key === "Enter") {
+      let validName = name.value;
+      if (validName !== "") {
+        recBoxStr.style.display = "none";
+        let obj = new allobj(name.value);
+        alltodo.push(obj);
+        allTaskSaveObject.taskName = alltodo[i].name;
+        loclestoragesave(allTaskSaveObject);
+        let card = document.createElement("div");
+        card.setAttribute("class", "add");
+        card.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${
+          JSON.parse(localStorage.getItem(name.value)).taskName
+        }</div>
     `;
-    body.appendChild(card);
-
-    i++;
-    addTask.style.display = "none";
-    name.value = "";
+        body.appendChild(card);
+        i++;
+        addTask.style.display = "none";
+        name.value = "";
+      } else {
+        let par = document.createElement("p");
+        par.setAttribute("class", "errormes");
+        par.innerHTML = "plz enter a task name";
+        addTask.appendChild(par);
+        setTimeout(() => {
+          par.remove();
+        }, 700);
+      }
+    }
+  });
+  but.addEventListener("click", function (e) {
+    let validName = name.value;
+    if (validName !== "") {
+      recBoxStr.style.display = "none";
+      let obj = new allobj(name.value);
+      alltodo.push(obj);
+      allTaskSaveObject.taskName = alltodo[i].name;
+      loclestoragesave(allTaskSaveObject);
+      let card = document.createElement("div");
+      card.setAttribute("class", "add");
+      card.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${
+        JSON.parse(localStorage.getItem(name.value)).taskName
+      }</div>
+    `;
+      body.appendChild(card);
+      i++;
+      addTask.style.display = "none";
+      name.value = "";
+    } else {
+      let par = document.createElement("p");
+      par.setAttribute("class", "errormes");
+      par.innerHTML = "plz enter a task name";
+      addTask.appendChild(par);
+      setTimeout(() => {
+        par.remove();
+      }, 700);
+    }
   });
 }
 
@@ -135,7 +178,6 @@ icon.addEventListener("click", (e) => {
   if (targe !== null) {
     targe.style.backgroundColor = "transparent";
   }
-
   targe = e.target;
   targe.style.textAlign = "center";
   targe.style.borderRadius = "1vw";
@@ -144,6 +186,9 @@ icon.addEventListener("click", (e) => {
   targe.style.width = "7vw";
 
   if (e.target.textContent === "forms_add_on") {
+    name.setAttribute("autofocus","")
+    console.log(name);
+    
     addTask.style.display = "block";
     eidtbut.style.display = "none";
   }
@@ -184,25 +229,23 @@ function notifactionworkOrnot(checknotifaction) {
   let notification;
   let check = checknotifaction();
   if (check === true) {
-  Notification.requestPermission().then((permission) => {
+    Notification.requestPermission().then((permission) => {
       if (permission === "granted") {
-        notification=   new Notification("hellow!", {
+        notification = new Notification("hellow!", {
           body: "ye mera pahala notifiction hai ",
           icon: "new img/images1.webp",
           link: "http://127.0.0.1:5500/serveses.html",
         });
 
-        notification.onclick = function(event) {
+        notification.onclick = function (event) {
           event.preventDefault(); // Default behavior रोकना
           console.log("igighigihjihjtjt");
-          window.open('http://127.0.0.1:5500/serveses.html', '_blank');
+          window.open("http://127.0.0.1:5500/serveses.html", "_blank");
         };
       }
     });
-  } 
+  }
 }
-
-
 
 function dateSelected() {
   let sInput = document.querySelector("#stime");
@@ -239,7 +282,6 @@ function dateSelected() {
     }, dealy);
   }
 
-  
   // end time
   eInput.addEventListener("change", () => {
     let evalue = null;
