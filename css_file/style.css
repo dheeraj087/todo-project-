@@ -296,7 +296,7 @@ a:active {
 .trans {
   background-color: #fff;
   cursor: pointer;
-  animation: roto 4s ease-in linear infinite;
+  animation: roto 3s ease-in linear infinite;
 }
 
 .downlode {
@@ -560,3 +560,14 @@ a:active {
     border-bottom-right-radius: 11px;
   }
 }
+i:hover{
+  transform: scale(1.2);
+  color:rgb(3, 3, 255);
+  cursor: pointer;
+}
+#mover{
+  margin-left: 30vw;
+  width: 20px;
+  height: 20px;
+}
+

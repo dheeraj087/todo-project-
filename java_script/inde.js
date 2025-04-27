@@ -27,169 +27,17 @@ function changeimg() {
       imgplus++;
     }
     imgmobile.innerHTML = `${imgobject[imgplus]}` || ""; // agar hame value null mili to khali string rakho
-  }, 300000);
+  }, 3000);
 }
 setInterval(() => {
   let imgmobile = document.querySelector(".imgmobile img");
   imgmobile.className = "trans";
 
   let img = document.querySelector(".trans");
-  img.style.animation = " roto 10.5s ease-in infinite";
-}, 2800000);
+  img.style.animation = " roto 1.5s ease-in infinite";
+}, 2800);
 changeimg();
-function login() {
-  function visibalLoginForm() {
-    let creatdiv = document.createElement("div");
-    creatdiv.setAttribute("class", "loginOpacity");
-    let loginbutton = document.querySelector(".started");
-    let hero = document.querySelector(".main");
-    let loginForm = document.querySelector(".loginForm");
-    if (!loginForm && !loginbutton) {
-      return console.error(
-        "Error: '.started' button or '.loginForm' not found!"
-      );
-    }
-    loginbutton.addEventListener("click", () => {
-      hero.appendChild(creatdiv);
-      loginForm.style.visibility = "visible";
-    });
-  }
-  visibalLoginForm();
 
-  let savepassword = {};
-  function loginForm() {
-    let inputvalueGmail = document.querySelector(".form input");
-    let inputvaluepassword = document.querySelector(
-      ".form input[type='password']"
-    );
-    let form = document.querySelector(".form button");
-    let errorValue = 1,
-      classname = "",
-      sms = "";
-    if (inputvalueGmail === null && inputvaluepassword === null) {
-      // yah block yah chake kar rah hai ki queryselector ne null to return nahi kiya hai
-      return console.error(
-        "Error: '.started' button or '.loginForm' not found!"
-      );
-    }
-    form.addEventListener("click", (event) => {
-      let gmail = "";
-      gmail = inputvalueGmail.value;
-      gmail = gmail.trim();
-      let password = "";
-      password = inputvaluepassword.value.trim();
-      function gmailvalid() {
-        if (gmail == "") {
-          errorValue = 0;
-          classname = ".gmail";
-          sms = "plz enter a valid gmail";
-        } else if (
-          gmail.endsWith("@gmail.com") &&
-          !gmail.includes(" ") &&
-          !gmail.includes("..") &&
-          !gmail.startsWith("_") &&
-          gmail.length >= 5 &&
-          gmail.length <= 30
-        ) {
-          savepassword[`${gmail}`] = password;
-          errorValue = 1;
-        } else {
-          errorValue = 0;
-          classname = ".gmail";
-          sms = "plz enter a valid gmail";
-        }
-      }
-      gmailvalid();
-
-      function passwordvalid(password) {
-        let valid1 = false;
-        let valid2 = false;
-        if (password.length < 8) {
-          errorValue = 0;
-          classname = ".password";
-          sms = "your password is to short";
-        }
-        let spesalchar = "/!@#$%^&*()_+{}][;:'`,|-";
-        let spesalnum = "123456789";
-        for (const key of password) {
-          if (spesalchar.includes(key)) {
-            console.log(key);
-            valid1 = true;
-          }
-          if (spesalnum.includes(key)) {
-            console.log(key);
-            valid2 = true;
-          }
-        }
-        if (!valid1) {
-          console.log("Add at least one special character");
-          console.log("num");
-          classname = ".password";
-          sms = "add a char";
-          return (errorValue = 0);
-        }
-
-        if (!valid2) {
-          console.log("Add at least one number");
-          console.log("num");
-          classname = ".password";
-          sms = "add a number";
-          return (errorValue = 0);
-        }
-        if (!valid1 && !valid2) {
-          console.log("Add at least one number");
-          console.log("num");
-          classname = ".password";
-          sms = "Add at least one number or chereter";
-          return (errorValue = 0);
-        }
-      }
-      errorValue = passwordvalid(password);
-      function chakeError(errornum, className, sms) {
-        if (errornum === 0) {
-          console.log(className);
-
-          let classes = document.querySelector(`${className}`);
-          classes.value = sms;
-          classes.style.fontWeight = "400";
-          errorValue = 1;
-          inputvaluepassword.setAttribute("type", "tex");
-          classes.addEventListener("click", () => {
-            classes.value = "";
-            errorValue = 1;
-            inputvaluepassword.setAttribute("type", "tex");
-          });
-          if (errorValue === 1) {
-            event.preventDefault();
-          }
-        }
-      }
-      chakeError(errorValue, classname, sms);
-    });
-  }
-  loginForm();
-
-  (function hidePassword() {
-    let hidePassword = document.querySelector(".material-icons");
-    let password = document.querySelector(".password");
-    let chake = 0;
-    if (!hidePassword && !password) {
-      console.error("error: sonthing went rong");
-    }
-    hidePassword.addEventListener("click", () => {
-      if (chake === 0) {
-        password.setAttribute("type", "text");
-        hidePassword.textContent = "visibility_off";
-        chake = 1;
-      } else {
-        password.setAttribute("type", "password");
-        hidePassword.textContent = "visibility";
-        chake = 0;
-      }
-    });
-  })();
-}
-login();
 let index = 0;
 let index2 = 0;
 let str = [
@@ -226,3 +74,39 @@ function typeWriter() {
   }
 }
 setInterval(typeWriter, 300);
+
+function effact() {
+  const hero = document.querySelector(".hero");
+  const mover = document.querySelector(".img");
+
+  hero.addEventListener("mousemove", (e) => {
+    const  { width, height, left, top } = hero.getBoundingClientRect();
+    
+    // Mouse position relative to center
+    const x = e.clientX - (left + width / 2);
+    const y = e.clientY - (top + height / 2);
+    
+    // Rotation calculation (adjust multiplier for more/less rotation)
+    const rotateX = (-y / height) * 60; // negative to invert
+    const rotateY = (x / width) * 60;
+    
+    mover.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${(x / width) *25}deg)`;
+
+    // Dynamic background color
+    const r = Math.min(255, Math.max(0, 150 + x / 2));
+    const g = Math.min(255, Math.max(0, 150 + y / 2));
+    const b = Math.min(255, Math.max(0, 200 - x / 3));
+    let imgmobile = document.querySelector(".aboutimgr");
+    mover.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    imgmobile.style.filter =`drop-shadow(4px 8px 20px rgb(${r}, ${g}, ${b}));`;
+
+  });
+
+  hero.addEventListener("mouseleave", () => {
+    // Smooth reset when mouse leaves
+    mover.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    mover.style.backgroundColor = `rgb(150, 150, 200,0.0)`;
+  });
+}
+
+effact();

@@ -1,8 +1,10 @@
 function allobj(name) {
   this.name = name;
 }
-let name = document.querySelector(".taskName");
 
+let myChart = null;
+
+let name = document.querySelector(".taskName");
 let but = document.querySelector(".addTodo");
 let eidtbut = document.querySelector(".eidtbut");
 let deletetodolist = document.querySelector("#delete");
@@ -16,12 +18,17 @@ icon.addEventListener("click", (e) => {});
 cancle.addEventListener("click", () => (addTask.style.display = "none"));
 i = 0;
 let alltodo = [];
+let date = new Date();
+
 // save the data in locle storage
 const allTaskSaveObject = {
   taskName: "",
-  startDtae: null,
-  enddate: null,
+  starttime: null,
+  endtime: null,
+  addDate: null,
   priorityKey: null,
+  complete: false,
+  completeTime: null,
 };
 function loclestoragesave(data) {
   localStorage.setItem(data.taskName, JSON.stringify(data));
@@ -33,20 +40,32 @@ function showTasksFromLocalStorage() {
       let data = JSON.parse(localStorage.getItem(key));
       if (data && data.taskName) {
         recBoxStr.style.display = "none";
+
         let card = document.createElement("div");
-        card.setAttribute("class", "add");
-        card.innerHTML = `<div class="addinput"> 
-              <input type="checkbox"/> ${data.taskName}
-            </div>`;
-        body.appendChild(card);
+        if (data.complete === true) {
+          card.setAttribute("class", "add");
+          card.innerHTML = `<div class="addinput"> 
+        <input type="checkbox"  checked disabled />completed: ${data.taskName}
+      </div>`;
+          card.style.backgroundColor = "gray";
+          card.style.pointerEvents = "none";
+          card.style.textDecoration = "line-through";
+          body.appendChild(card);
+        } else {
+          card.setAttribute("class", "add");
+          card.innerHTML = `<div class="addinput"> 
+        <input type="checkbox"/> ${data.taskName}
+      </div>`;
+          body.appendChild(card);
+        }
       }
     }
   }
 }
 function addTodo() {
   name.addEventListener("keydown", function (e) {
-    e.preventDefault()
-    console.log(e.key);
+    // e.preventDefault()
+    e.stopPropagation();
     if (e.key === "Enter") {
       let validName = name.value;
       if (validName !== "") {
@@ -54,6 +73,7 @@ function addTodo() {
         let obj = new allobj(name.value);
         alltodo.push(obj);
         allTaskSaveObject.taskName = alltodo[i].name;
+        allTaskSaveObject.addDate = date.toLocaleDateString();
         loclestoragesave(allTaskSaveObject);
         let card = document.createElement("div");
         card.setAttribute("class", "add");
@@ -75,6 +95,8 @@ function addTodo() {
         }, 700);
       }
     }
+    myChart.data.datasets[0].data = fetchallData();
+    myChart.update();
   });
   but.addEventListener("click", function (e) {
     let validName = name.value;
@@ -83,6 +105,7 @@ function addTodo() {
       let obj = new allobj(name.value);
       alltodo.push(obj);
       allTaskSaveObject.taskName = alltodo[i].name;
+      allTaskSaveObject.addDate = date.toLocaleDateString();
       loclestoragesave(allTaskSaveObject);
       let card = document.createElement("div");
       card.setAttribute("class", "add");
@@ -103,6 +126,7 @@ function addTodo() {
         par.remove();
       }, 700);
     }
+    myChart.update();
   });
 }
 
@@ -136,12 +160,17 @@ function edit() {
   let edittask = null;
   function h2() {
     function hendlar() {
-      if (edittask !== null) {
+      if (edittask !== null && name.value !== "") {
         const de = deletetodo();
         body.removeEventListener("click", de);
-
+        let editTaskSave = JSON.parse(
+          localStorage.getItem(edittask.textContent.trim())
+        );
+        editTaskSave.taskName = name.value;
+        localStorage.removeItem(edittask.textContent.trim());
+        localStorage.setItem(name.value, JSON.stringify(editTaskSave));
         edittask.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${name.value.trim()}</div>
-    `;
+        `;
         alltodo.name = name.value;
         edittask.style.color = "black";
         addTask.style.display = "none";
@@ -175,6 +204,8 @@ function edit() {
 }
 edit();
 icon.addEventListener("click", (e) => {
+  e.stopPropagation();
+  e.preventDefault();
   if (targe !== null) {
     targe.style.backgroundColor = "transparent";
   }
@@ -186,40 +217,72 @@ icon.addEventListener("click", (e) => {
   targe.style.width = "7vw";
 
   if (e.target.textContent === "forms_add_on") {
-    name.setAttribute("autofocus","")
-    console.log(name);
-    
+    name.setAttribute("autofocus", "");
     addTask.style.display = "block";
     eidtbut.style.display = "none";
   }
   if (e.target.textContent === "Delete") {
     let str = deleteTask.textContent;
     localStorage.removeItem(str.trim());
-    console.log();
     deleteTask.remove();
+    myChart.update();
   }
 });
-function conplete() {
+function complete() {
   body.addEventListener("change", function (e) {
     if (e.target.matches(".addinput input[type='checkbox']")) {
       let task = e.target.closest(".add");
       let tas = e.target.closest("input[type='checkbox']");
       if (tas) {
+        let complitedtask = JSON.parse(
+          localStorage.getItem(task.textContent.trim())
+        );
+        complitedtask.complete = true;
+
+        complitedtask.completeTime = new Date().getTime();
+        localStorage.setItem(
+          task.textContent.trim(),
+          JSON.stringify(complitedtask)
+        );
+        allTaskSaveObject.complete = true;
+        myChart.data.datasets[0].data = fetchallData();
+        myChart.update();
         task.style.backgroundColor = "gray";
         task.style.textDecoration = "line-through";
         task.style.opacity = 0.6;
-        task.innerHTML = `<div class="addinput"> <input type="checkbox" checked/>complited</div>`;
+        task.style.pointerEvents = "none";
+        task.innerHTML = `<div class="addinput"> <input type="checkbox" checked disabled />complited</div>`;
       }
     }
   });
 }
-conplete();
-//  notifeaction system
 
+complete();
+function deleteCompletedTask() {
+  for (const key in localStorage) {
+    let delay;
+    let data = JSON.parse(localStorage.getItem(key));
+    if (!data || !data.completeTime) {
+      continue;
+    }
+    let news = new Date(data.completeTime);
+        news.setDate(news.getDate() + 1);
+        delay = Math.abs(
+          news.getTime() - new Date(data.completeTime).getTime()
+        );
+    setTimeout(() => {
+        
+        if (data.complete === true) {
+          localStorage.removeItem(key);
+        }
+      
+    },delay);
+  }
+}
+deleteCompletedTask();
+//  notifeaction system
 function checknotifaction() {
   if ("Notification" in window) {
-    console.log("working");
-
     return true;
   } else {
     return false;
@@ -238,8 +301,7 @@ function notifactionworkOrnot(checknotifaction) {
         });
 
         notification.onclick = function (event) {
-          event.preventDefault(); // Default behavior रोकना
-          console.log("igighigihjihjtjt");
+          event.preventDefault();
           window.open("http://127.0.0.1:5500/serveses.html", "_blank");
         };
       }
@@ -311,8 +373,170 @@ function dateSelected() {
     setTimeout(() => {
       alert("your time is end in 1");
       const neww = document.querySelector(".audio");
-      neww.play;
+      neww.play();
     }, edealy);
   }
 }
 dateSelected();
+
+// addd a searching funcanatity in todo list
+let allData = [];
+for (let index = 0; index < localStorage.length; index++) {
+  let key = localStorage.key(index);
+  let dataa = JSON.parse(localStorage.getItem(key));
+  allData.push(dataa);
+}
+function searching() {
+  let searchBar = document.querySelector(".searchbar");
+  searchBar.addEventListener("change", (e) => {
+    if (searchBar.value !== "") {
+      let valueee = searchBar.value.trim();
+
+      let searchResult = document.createElement("dev");
+      searchResult.setAttribute("class", "serchresult");
+      searchData(valueee, allData, searchResult);
+    }
+  });
+
+  function searchData(searchstr, data, appendChildData) {
+    let filtered = data.filter((item) =>
+      item.taskName.toLowerCase().includes(searchstr.toLowerCase())
+    );
+    appendChildData.innerHTML = "";
+    if (filtered.length === 0) {
+      appendChildData.innerHTML = `
+       <ul class="list" type="1">
+    <li> result is not found 😒 </li>
+    </ul>
+        `;
+    }
+    for (let index = 0; index < filtered.length; index++) {
+      if (filtered.length !== 0) {
+        appendChildData.innerHTML += `
+    <ul class="list" type="1">
+    <li>${filtered[index].taskName}</li>
+    </ul>`;
+      }
+    }
+    document.querySelector(".serach").appendChild(appendChildData);
+    let list = document.querySelector(".serach");
+    list.addEventListener("click", (e) => {
+      if (e.target.tagName === "LI") {
+        appendChildData.remove();
+        searchBar.value = "";
+      }
+    });
+  }
+}
+
+searching();
+
+function fetchallData() {
+  let data_01 = [];
+  let totaldata = localStorage.length;
+  let complitedtask = allData.filter((element) => {
+    return element.complete === true;
+  });
+  data_01.push(totaldata);
+  data_01.push(complitedtask.length);
+  data_01.push(Math.abs(totaldata - complitedtask.length));
+
+  return data_01;
+}
+function chartd() {
+  const ctx = document.querySelector(".mide").getContext("2d");
+
+  // Agar pehle se chart bana hai, to use destroy kar do
+  if (myChart) {
+    myChart.destroy();
+  }
+
+  myChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: ["Total Task", "Completed", "Not Completed"],
+      datasets: [
+        {
+          label: "Today's Task Data",
+          data: fetchallData(), // always fresh data
+          fill: true,
+          backgroundColor: "rgba(75, 192, 192, 0.2)",
+          borderColor: "rgba(75, 192, 192, 1)",
+          tension: 0.4,
+          borderWidth: 2,
+          pointBackgroundColor: "white",
+          pointBorderColor: "rgba(75, 192, 192, 1)",
+          pointRadius: 5,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Today's Task Data",
+          font: {
+            size: 20,
+          },
+          color: "#333",
+        },
+        legend: {
+          display: true,
+          position: "top",
+          labels: {
+            color: "#333",
+            font: {
+              size: 14,
+            },
+          },
+        },
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Number of Tasks",
+            color: "#333",
+            font: {
+              size: 16,
+            },
+          },
+          ticks: {
+            color: "#333",
+          },
+        },
+        x: {
+          ticks: {
+            color: "#333",
+          },
+        },
+      },
+    },
+  });
+}
+chartd();
+function updatechart() {
+  let cheack = 0;
+
+  const canvasgraph = document.querySelector("canvas");
+  canvasgraph.addEventListener("click", (e) => {
+    if (cheack === 0) {
+      myChart.data.datasets[0].data = fetchallData();
+      myChart.update();
+      canvasgraph.style.maxHeight = "78vh";
+      canvasgraph.style.maxWidth = "43vw";
+      myChart.resize();
+      cheack = 1;
+    } else {
+      myChart.data.datasets[0].data = fetchallData();
+      myChart.update();
+      canvasgraph.style.maxHeight = "38vh";
+      canvasgraph.style.maxWidth = "33vw";
+      myChart.resize();
+      cheack = 0;
+    }
+  });
+}
+updatechart();

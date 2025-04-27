@@ -22,6 +22,9 @@
     <link rel="shortcut icon" href="new img/images1.webp" type="image/x-icon" />
 
     <link rel="stylesheet" href="css_file/serveses.css" />
+
+    <!-- chart ke liya  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div class="main">
@@ -74,8 +77,8 @@
         <div class="dasord">
           <div class="dshNav">
             <h2>Dashbord</h2>
-            <div class="serach">
-              <input type="search" title="search bar" />
+            <div class="serach" >
+              <input type="search" title="search bar" class="searchbar"/>
               <i class="material-symbols-outlined searchicon">search</i>
             </div>
             <i class="material-symbols-outlined bell">notifications</i>
@@ -91,37 +94,24 @@
               </div>
           <strong>no recent task</strong>
             </div>
-            <div class="recentbox section2">
-              <div class="recentTop">
-                <p>Folder</p>
-                <button>All ></button>
-              </div>
-            </div>
-            <div class="recentbox section2 mide">
-              <div class="recentTop">
-                <p>Folder</p>
-                <button>All ></button>
-              </div>
-            </div>
-            <div class="recentbox last">
-              <div class="recentTop">
-                <p>Recent Task</p>
-                <button>All ></button>
-              </div>
-            </div>
+            
+            <canvas class="recentbox section2 mide">
+              
+            </canvas>
+            
           </div>
         </div>
       </div>
      <form class="addTask">
       <h2>Add Task</h2>
-      <input type="text"  placeholder="Enter a task " class="taskName">
+      <input type="text"  placeholder="Enter a task " class="taskName" name="taskadd" required>
       <div class="taskicon">
         <button class="taskbut"><i class="material-symbols-outlined" id="addsub">+</i></button>
         <label for="addsub"> Add subtask</label>
-        <button class="taskbut"><i class="material-symbols-outlined">2</i></button>
-        <button class="taskbut"><i class="material-symbols-outlined">3</i></button>
-        <button class="taskbut"><i class="material-symbols-outlined">4</i></button>
-        <button class="taskbut"><i class="material-symbols-outlined">5</i></button>
+        <button type="button" class="taskbut"><i class="material-symbols-outlined">2</i></button>
+        <button type="button" class="taskbut"><i class="material-symbols-outlined">3</i></button>
+        <button type="button" class="taskbut proyritey"><i class="material-symbols-outlined">p</i></button>
+        <button type="button" class="taskbut"><i class="material-symbols-outlined">5</i></button>
       </div>
       <div class="dateTime">
         <input type="time" id="stime">;
@@ -130,11 +120,11 @@
         <label for="etime" id="label" class="elabel"><p>00:00 <span class="ee">😁</span></p>   </label>
       </div>
       <button type="button" class="cancle">cancle</button>
-      <button type="button" class="addTodo" >add</button>
-      <button type="button" class="eidtbut" >eidt</button>
-
-     </form>
-     <audio class="audio" preload="auto" loading="lazy" src="audio/elevator-music-bossa-nova-background-music-version-60s-10900.mp3"></audio>
+      <button type="submit" class="addTodo" >add</button>
+      <button type="button" class="eidtbut" >eidt</button>     
+    </form>
+    <audio src="audio/notification-18-270129.mp3" class="audio"></audio>
     <script src="java_script/serveses.js"></script>
   </body>
-</html>
+  </html>
+  

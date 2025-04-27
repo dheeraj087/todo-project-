@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-display: swap;
+  font-family: 'Poppins',sans-serif;
 }
 .main {
   background-image: url("wave.png");
@@ -149,7 +150,7 @@ h1 {
   border: #a2c4c2d6 solid 1.5px;
   width: 22vw;
   padding: 1px;
-  height: 45vh;
+  height: 80vh;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -157,10 +158,6 @@ h1 {
   margin: 0vh 5vw;
   position: relative;
   top: 8vh;
-}
-.section2 {
-  height: 30vh;
-  width: 22vw;
 }
 .recentTop {
   display: flex;
@@ -371,6 +368,14 @@ h1 {
   color: red;
 }
 
+canvas{
+  max-height: 30vh; 
+  max-width: 32vw;
+  position: relative;
+  font-size: xx-large;
+  color: #000000;
+  z-index: 122;
+}
 @media screen and (max-width: 750px) {
   .mainbox {
     width: 90vw;
@@ -391,17 +396,10 @@ h1 {
   button:active {
     background-color: transparent;
   }
-  .recentbox {
-    width: 35vw;
-    height: 24vh;
-  }
+ 
   .section2 {
     height: 41vw;
     margin-left: 15vw;
-  }
-  .last {
-    bottom: 27vh;
-    left: 12vw;
   }
   .mide {
     margin-left: 2vw;
@@ -426,4 +424,28 @@ h1 {
   .recentTop button {
     font-size: 10px;
   }
+}
+
+.serchresult{
+  color: black;
+  position: absolute;
+  top:6vw;
+  right: 20vw;
+  width: 35vw;
+   backdrop-filter: blur(5px);
+   border: 1px wheat solid;
+   border-radius:20px ;
+  z-index: 1111;
+  cursor: pointer;
+}
+.serchresult li{
+  margin-bottom: 10px;
+  font-size: larger;
+  font-weight: 500;
+  font-family: 'poppins',sans-serif;
+  margin-left: 10px;
+}
+i:hover{
+  transform: scale(1.2);
+  color:rgb(3, 3, 255);
 }

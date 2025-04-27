@@ -164,6 +164,7 @@
   top: -50vh;
 }
 .aboutimg img {
+  filter: drop-shadow(3px 6px 10px rgba(4, 255, 205, 0.862));
   margin-top: 20vh;
   width: 30vw;
   border: 2px;
@@ -518,4 +519,8 @@ td {
   font-family: "Miss Fajardose", cursive;
   cursor: pointer;
   color: rgb(250, 146, 163);
+}
+i:hover{
+  transform: scale(1.2);
+  color:rgb(3, 3, 255);
 }
