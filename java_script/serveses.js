@@ -1,9 +1,9 @@
 function allobj(name) {
   this.name = name;
 }
-
 let myChart = null;
-
+let toorBlock;
+// traget of html
 let name = document.querySelector(".taskName");
 let but = document.querySelector(".addTodo");
 let eidtbut = document.querySelector(".eidtbut");
@@ -19,6 +19,153 @@ cancle.addEventListener("click", () => (addTask.style.display = "none"));
 i = 0;
 let alltodo = [];
 let date = new Date();
+let toorcount = 0;
+//WEBSITE VISITING TOOR
+
+function toorofTheWebsite() {
+  const fristvisite = JSON.parse(localStorage.getItem("fristTimeVisite"));
+  console.log(fristvisite);
+
+  function counter() {
+    toorcount++;
+    toorBlock.remove();
+    toor(fristvisite);
+    console.log(toorcount);
+  }
+  if (fristvisite === null) {
+    localStorage.setItem("fristTimeVisite", JSON.stringify(false));
+  }
+  function toor(fristvisite) {
+    toorBlock = document.createElement("div");
+    toorBlock.setAttribute("class", "toor_block");
+
+    if (fristvisite === null || (fristvisite === false && toorcount === 0)) {
+      console.log(toorcount);
+
+      toorBlock.innerHTML = `<p>Click here to <strong>Add a Task</strong > <i>></i></p>`;
+      toorBlock.style.position = "absolute";
+      toorBlock.style.top = "47vh";
+      toorBlock.style.left = "2vw";
+      document.querySelector(".main").appendChild(toorBlock);
+      document.querySelector("#tooradd").addEventListener(
+        "click",
+        () => {
+          counter();
+        },
+        { once: true }
+      );
+    }
+    if (fristvisite === null || (fristvisite === false && toorcount === 1)) {
+      toorBlock.style.position = "absolute";
+      toorBlock.innerHTML = `<p>Click here to <strong>add a Task</strong > <i>></i></p>`;
+      toorBlock.style.top = "67vh";
+      toorBlock.style.left = "25vw";
+      document.querySelector(".main").appendChild(toorBlock);
+      but.addEventListener(
+        "click",
+        () => {
+          counter();
+        },
+        { once: true }
+      );
+    }
+    if (fristvisite === null || (fristvisite === false && toorcount === 2)) {
+      toorBlock.style.position = "absolute";
+      toorBlock.innerHTML = `<p>frist Click here to <strong>edit a Task</strong > <i>></i></p>`;
+      toorBlock.style.top = "40vh";
+      toorBlock.style.left = "24vw";
+      document.querySelector(".main").appendChild(toorBlock);
+      document.querySelector(".tooredit").addEventListener(
+        "click",
+        () => {
+          counter();
+        },
+        { once: true }
+      );
+    }
+    if (fristvisite === null || (fristvisite === false && toorcount === 3)) {
+      toorBlock.style.position = "absolute";
+      toorBlock.innerHTML = `<p>then within a 1s Click here to edti Task<i>></i></p>`;
+      toorBlock.style.top = "48vh";
+      toorBlock.style.fontSize = "9px";
+      toorBlock.style.left = "20vw";
+      document.querySelector(".main").appendChild(toorBlock);
+      document.querySelector(".add")?.addEventListener(
+        "click",
+        () => {
+          counter();
+        },
+        { once: true }
+      );
+    }
+    if (fristvisite === null || (fristvisite === false && toorcount === 4)) {
+      toorBlock.style.position = "absolute";
+      toorBlock.innerHTML = `<p>Click here to edti Task<i>></i></p>`;
+      toorBlock.style.top = "69vh";
+      toorBlock.style.fontSize = "9px";
+      toorBlock.style.left = "24vw";
+      document.querySelector(".main").appendChild(toorBlock);
+      eidtbut.addEventListener(
+        "click",
+        () => {
+          counter();
+        },
+        { once: true }
+      );
+    }
+    if (fristvisite === null || (fristvisite === false && toorcount === 5)) {
+      toorBlock.style.position = "absolute";
+      toorBlock.innerHTML = `<p>then within a 1s Click here to delete Task<i>></i></p>`;
+      toorBlock.style.top = "48vh";
+      toorBlock.style.fontSize = "9px";
+      toorBlock.style.left = "20vw";
+      document.querySelector(".main").appendChild(toorBlock);
+      document.querySelector(".add")?.addEventListener(
+        "click",
+        () => {
+          counter();
+        },
+        { once: true }
+      );
+    }
+    if (fristvisite === null || (fristvisite === false && toorcount === 6)) {
+      toorBlock.style.position = "absolute";
+      toorBlock.innerHTML = `<p>then within a 1s Click here to delete Task<i>></i></p>`;
+      toorBlock.style.top = "93vh";
+      toorBlock.style.fontSize = "9px";
+      toorBlock.style.left = "-1vw";
+      document.querySelector(".main").appendChild(toorBlock);
+      document.querySelector(".delete").addEventListener(
+        "click",
+        () => {
+          counter();
+        },
+        { once: true }
+      );
+    }
+    if (fristvisite === null || (fristvisite === false && toorcount === 7)) {
+      toorBlock.style.position = "absolute";
+      toorBlock.innerHTML = `<p>Click here to big size of graph<i>></i></p>`;
+      toorBlock.style.top = "48vh";
+      toorBlock.style.fontSize = "9px";
+      toorBlock.style.left = "45vw";
+      document.querySelector(".main").appendChild(toorBlock);
+      document.querySelector("canvas").addEventListener(
+        "click",
+        () => {
+          counter();
+        },
+        { once: true }
+      );
+    }
+    if (fristvisite === false && toorcount === 8 && toorcount > 7) {
+      localStorage.setItem("fristTimeVisite", JSON.stringify(true));
+    }
+  }
+
+  toor(fristvisite);
+}
+toorofTheWebsite();
 
 // save the data in locle storage
 const allTaskSaveObject = {
@@ -53,7 +200,7 @@ function showTasksFromLocalStorage() {
           body.appendChild(card);
         } else {
           card.setAttribute("class", "add");
-          card.innerHTML = `<div class="addinput"> 
+          card.innerHTML = `<div class="addinput taskedit"> 
         <input type="checkbox"/> ${data.taskName}
       </div>`;
           body.appendChild(card);
@@ -62,11 +209,12 @@ function showTasksFromLocalStorage() {
     }
   }
 }
+
+// add task form enter button
 function addTodo() {
   name.addEventListener("keydown", function (e) {
-    // e.preventDefault()
-    e.stopPropagation();
     if (e.key === "Enter") {
+      toorcount = 1;
       let validName = name.value;
       if (validName !== "") {
         recBoxStr.style.display = "none";
@@ -77,7 +225,7 @@ function addTodo() {
         loclestoragesave(allTaskSaveObject);
         let card = document.createElement("div");
         card.setAttribute("class", "add");
-        card.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${
+        card.innerHTML = `<div class="addinput taskedit"> <input type="checkbox"/> ${
           JSON.parse(localStorage.getItem(name.value)).taskName
         }</div>
     `;
@@ -98,9 +246,12 @@ function addTodo() {
     myChart.data.datasets[0].data = fetchallData();
     myChart.update();
   });
+
+  // add task to  mouse click
   but.addEventListener("click", function (e) {
     let validName = name.value;
     if (validName !== "") {
+      toorcount == 1;
       recBoxStr.style.display = "none";
       let obj = new allobj(name.value);
       alltodo.push(obj);
@@ -109,7 +260,7 @@ function addTodo() {
       loclestoragesave(allTaskSaveObject);
       let card = document.createElement("div");
       card.setAttribute("class", "add");
-      card.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${
+      card.innerHTML = `<div class="addinput taskedit"> <input type="checkbox"/> ${
         JSON.parse(localStorage.getItem(name.value)).taskName
       }</div>
     `;
@@ -126,12 +277,16 @@ function addTodo() {
         par.remove();
       }, 700);
     }
+    myChart.data.datasets[0].data = fetchallData();
     myChart.update();
   });
 }
 
 addTodo();
 showTasksFromLocalStorage();
+
+//for a deleted task
+
 let deleteTask;
 function deletetodo() {
   function nu(e) {
@@ -155,6 +310,8 @@ function deletetodo() {
 let targe = null;
 
 deletetodo();
+
+// edit task
 
 function edit() {
   let edittask = null;
@@ -217,7 +374,6 @@ icon.addEventListener("click", (e) => {
   targe.style.width = "7vw";
 
   if (e.target.textContent === "forms_add_on") {
-    name.setAttribute("autofocus", "");
     addTask.style.display = "block";
     eidtbut.style.display = "none";
   }
@@ -225,9 +381,12 @@ icon.addEventListener("click", (e) => {
     let str = deleteTask.textContent;
     localStorage.removeItem(str.trim());
     deleteTask.remove();
+    myChart.data.datasets[0].data = fetchallData();
     myChart.update();
   }
 });
+
+// task complited task
 function complete() {
   body.addEventListener("change", function (e) {
     if (e.target.matches(".addinput input[type='checkbox']")) {
@@ -258,6 +417,8 @@ function complete() {
 }
 
 complete();
+
+// complited task ko delite
 function deleteCompletedTask() {
   for (const key in localStorage) {
     let delay;
@@ -266,17 +427,13 @@ function deleteCompletedTask() {
       continue;
     }
     let news = new Date(data.completeTime);
-        news.setDate(news.getDate() + 1);
-        delay = Math.abs(
-          news.getTime() - new Date(data.completeTime).getTime()
-        );
+    news.setDate(news.getDate() + 1);
+    delay = Math.abs(news.getTime() - new Date(data.completeTime).getTime());
     setTimeout(() => {
-        
-        if (data.complete === true) {
-          localStorage.removeItem(key);
-        }
-      
-    },delay);
+      if (data.complete === true) {
+        localStorage.removeItem(key);
+      }
+    }, delay);
   }
 }
 deleteCompletedTask();
@@ -308,7 +465,7 @@ function notifactionworkOrnot(checknotifaction) {
     });
   }
 }
-
+// for delete task
 function dateSelected() {
   let sInput = document.querySelector("#stime");
   let slabel = document.querySelector(".slabel p");
@@ -381,26 +538,34 @@ dateSelected();
 
 // addd a searching funcanatity in todo list
 let allData = [];
+
 for (let index = 0; index < localStorage.length; index++) {
   let key = localStorage.key(index);
-  let dataa = JSON.parse(localStorage.getItem(key));
-  allData.push(dataa);
+  if (key !== "fristTimeVisite") {
+    console.log(key);
+    let dataa = JSON.parse(localStorage.getItem(key));
+    allData.push(dataa);
+  }
 }
+console.log(allData.length);
+
 function searching() {
   let searchBar = document.querySelector(".searchbar");
-  searchBar.addEventListener("change", (e) => {
+  searchBar.addEventListener("input", (e) => {
     if (searchBar.value !== "") {
       let valueee = searchBar.value.trim();
 
-      let searchResult = document.createElement("dev");
+      let searchResult = document.createElement("div");
       searchResult.setAttribute("class", "serchresult");
       searchData(valueee, allData, searchResult);
     }
   });
 
   function searchData(searchstr, data, appendChildData) {
+    // hame sa jabbhi kahi se api se data la rahe he ya to kuchhbhi to usame chake kar le ki kry hai ki nhi
+
     let filtered = data.filter((item) =>
-      item.taskName.toLowerCase().includes(searchstr.toLowerCase())
+      item?.taskName?.toLowerCase().includes(searchstr.toLowerCase())
     );
     appendChildData.innerHTML = "";
     if (filtered.length === 0) {
@@ -431,9 +596,11 @@ function searching() {
 
 searching();
 
+// for a chart
+
 function fetchallData() {
   let data_01 = [];
-  let totaldata = localStorage.length;
+  let totaldata = localStorage.length - 1;
   let complitedtask = allData.filter((element) => {
     return element.complete === true;
   });
@@ -446,7 +613,6 @@ function fetchallData() {
 function chartd() {
   const ctx = document.querySelector(".mide").getContext("2d");
 
-  // Agar pehle se chart bana hai, to use destroy kar do
   if (myChart) {
     myChart.destroy();
   }

@@ -34,7 +34,7 @@ setInterval(() => {
   imgmobile.className = "trans";
 
   let img = document.querySelector(".trans");
-  img.style.animation = " roto 1.5s ease-in infinite";
+  img.style.animation = " roto 2.5s ease-in infinite";
 }, 2800);
 changeimg();
 
@@ -80,26 +80,27 @@ function effact() {
   const mover = document.querySelector(".img");
 
   hero.addEventListener("mousemove", (e) => {
-    const  { width, height, left, top } = hero.getBoundingClientRect();
-    
+    const { width, height, left, top } = hero.getBoundingClientRect();
+
     // Mouse position relative to center
     const x = e.clientX - (left + width / 2);
     const y = e.clientY - (top + height / 2);
-    
+
     // Rotation calculation (adjust multiplier for more/less rotation)
-    const rotateX = (-y / height) * 60; // negative to invert
-    const rotateY = (x / width) * 60;
-    
-    mover.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${(x / width) *25}deg)`;
+    const rotateX = (-y / height) * 30; // negative to invert
+    const rotateY = (x / width) * 30;
+
+    mover.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${
+      (x / width) * 25
+    }deg)`;
 
     // Dynamic background color
     const r = Math.min(255, Math.max(0, 150 + x / 2));
     const g = Math.min(255, Math.max(0, 150 + y / 2));
     const b = Math.min(255, Math.max(0, 200 - x / 3));
-    let imgmobile = document.querySelector(".aboutimgr");
+    let imgmobile = document.querySelector(".imgmobile");
     mover.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    imgmobile.style.filter =`drop-shadow(4px 8px 20px rgb(${r}, ${g}, ${b}));`;
-
+    imgmobile.style.filter = `drop-shadow(4px 8px 20px rgb(${r}, ${g}, ${b}));`;
   });
 
   hero.addEventListener("mouseleave", () => {
@@ -108,5 +109,23 @@ function effact() {
     mover.style.backgroundColor = `rgb(150, 150, 200,0.0)`;
   });
 }
-
 effact();
+
+function toorofTheWebsite() {
+  function toor(fristvisite) {
+    if (fristvisite === null) {
+      localStorage.setItem("fristTimeVisite", JSON.stringify(false));
+    }
+    if (!fristvisite) {
+      console.log(fristvisite);
+      let toorBlock = document.createElement("div");
+      toorBlock.setAttribute("class", "toor_block");
+      toorBlock.innerHTML = `<p> click hear to start my serveses <i>></i></p>
+      `;
+      document.querySelector(".hero").appendChild(toorBlock);
+    }
+  }
+  const fristvisite = JSON.parse(localStorage.getItem("fristTimeVisite"));
+  toor(fristvisite);
+}
+toorofTheWebsite();

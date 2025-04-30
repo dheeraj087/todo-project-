@@ -476,7 +476,7 @@ td {
 .right p{
   color: rgb(156, 156, 156);
   position: relative;
-  left:18vw;
+  left:10vw;
   bottom: -12vh;
   cursor: pointer;
   font-size: 1.7vw;
@@ -509,7 +509,7 @@ td {
   height: 2vw;
   border-radius: 5vw;
   text-align: center;
-  padding-top:1vw ;
+  padding:0.5vw ;
   cursor: pointer;
 }
 .singh{

@@ -375,12 +375,14 @@ a:active {
 }
 .bx {
   font-size: 2.6vw;
-  margin-right: 4px;
+  margin-right: 0px;
   width: 3vw;
   height: 3vw;
   padding: 1px;
   margin-top: 1vh;
+  border: none;
   color: #5e5e5e;
+  box-shadow: none;
 }
 .h13 {
   font-weight: 900;
@@ -438,32 +440,32 @@ a:active {
     right: -1vw;
     border-radius: 30px;
   }
-  .nav{
+  .nav {
     margin-left: -6px;
     width: 100vw;
   }
-  .mobile2 img{
+  .mobile2 img {
     height: 52vh;
     width: 27vw;
     margin-top: 16vw;
   }
-  .imgmobile{
+  .imgmobile {
     top: -52.6vh;
     right: 0vw;
   }
-  .hero::after{
-  content: " ";
-  width: 22.5vw;
-  z-index: 2;
-  left: 79vw;
-  height: 10px;
-  top: 41vh;
-  /* backdrop-filter: blur(6px/); */
-  background-color: #BEBCBC;
-  position: absolute;
-  /* background-color: transparent; */
+  .hero::after {
+    content: " ";
+    width: 22.5vw;
+    z-index: 2;
+    left: 79vw;
+    height: 10px;
+    top: 41vh;
+    /* backdrop-filter: blur(6px/); */
+    background-color: #bebcbc;
+    position: absolute;
+    /* background-color: transparent; */
   }
-  .link{
+  .link {
     margin-top: 5px;
   }
   .imgcover {
@@ -472,10 +474,10 @@ a:active {
     width: 25.8vw;
     height: 53.5vw;
     border-radius: 10px;
-    position: absolute
+    position: absolute;
   }
-  a{
-    margin:  2vw 5.5px;
+  a {
+    margin: 2vw 5.5px;
   }
   .text1 {
     margin-left: -5px;
@@ -560,14 +562,62 @@ a:active {
     border-bottom-right-radius: 11px;
   }
 }
-i:hover{
+i:hover {
   transform: scale(1.2);
-  color:rgb(3, 3, 255);
+  color: rgb(3, 3, 255);
   cursor: pointer;
 }
-#mover{
+#mover {
   margin-left: 30vw;
   width: 20px;
   height: 20px;
 }
 
+.toor_block {
+  position: absolute;
+  z-index: 1235467;
+  top: 7vw;
+  left: 54vw;
+  width: 25vw;
+  text-align: center;
+  height: 7vh;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: large;
+  background: #e5dddd;
+  box-shadow: inset 10px 9px 13px #2a1515, inset -10px -9px 10px #9c9b9b,
+    5px 5px 15px rgb(0, 0, 0);
+  cursor: pointer;
+  animation: block 1s ease-in infinite alternate;
+}
+.toor_block i{
+  position: absolute;
+  font-size: 40px;
+  margin:10px 3px ;
+  animation: aero 3s ease-out infinite ;
+}
+
+@keyframes aero {
+  0%{
+    transform: scale(1) translatey(-10px) rotate(0deg);
+    /* opacity: 0; */
+    color: red;
+  }
+  100%{
+    transform: scale(1.5) translatey(-40px) rotate(-90deg);
+    opacity: 1;
+    color: blue;
+  }
+}
+@keyframes block {
+  0%{
+    transform: scale(1) ;
+    /* opacity: 0; */
+    background-color: red;
+  }
+  100%{
+    transform: scale(1.1);
+    opacity: 1;
+    background-color: blue;
+  }
+}
