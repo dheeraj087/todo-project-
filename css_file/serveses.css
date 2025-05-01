@@ -410,56 +410,6 @@ canvas{
   color: #000000;
   z-index: 122;
 }
-@media screen and (max-width: 750px) {
-  .mainbox {
-    width: 90vw;
-    height: 54vh;
-    top: 5vh;
-    left: 5vw;
-  }
-  .sidenave {
-    height: 53vh;
-  }
-  .dasord {
-    width: 86vw;
-    height: 53vh;
-  }
-  button {
-    border: none;
-  }
-  button:active {
-    background-color: transparent;
-  }
- 
-  .section2 {
-    height: 41vw;
-    margin-left: 15vw;
-  }
-  .mide {
-    margin-left: 2vw;
-    margin-top: -52vw;
-  }
-  * {
-    font-size: 3vw;
-  }
-  .addinput {
-    font-size: 18px;
-  }
-  .addinput input {
-    width: 18px;
-    height: 18px;
-  }
-  .recentTop {
-    margin-top: 12px;
-  }
-  .recentTop p {
-    font-size: 11px;
-  }
-  .recentTop button {
-    font-size: 10px;
-  }
-}
-
 .serchresult{
   color: black;
   position: absolute;
@@ -506,7 +456,15 @@ i:hover{
   margin:10px 3px ;
   animation: aero 1s ease-out infinite ;
 }
-
+form button {
+  border: none;
+  margin: 10px;
+  width: 47px;
+  border-radius:3px;
+  background-color: #333333;
+  color: white;
+  height: 27px;
+}
 @keyframes aero {
   0%{
     transform: scale(1) translatey(-10px) rotate(0deg);
@@ -531,3 +489,133 @@ i:hover{
     background-color: rgb(0, 0, 255);
   }
 }
+@media screen and (max-width: 750px) {
+  .main{
+    width: 105vw;
+  }
+  .mainbox {
+    width: 95vw;
+    height: 80vh;
+    top: 5vh;
+    left: 5vw;
+  }
+  .sidenave {
+    height: 79vh;
+    width: 10vw;
+  }
+  .icon {
+    height: 50vh;
+  }
+  .sidenavicon {
+    font-size: 6.5vw;
+}
+.logo img {
+  width: 7vw;
+ 
+}
+  .dasord {
+    width: 90vw;
+    height: 79vh;
+  }
+  button {
+    border: none;
+  }
+  button:active {
+    background-color: transparent;
+  }
+  * {
+    font-size: 3vw;
+  }
+  .addinput {
+    font-size: 18px;
+  }
+  .addinput input {
+    width: 18px;
+    height: 18px;
+  }
+  .recentTop {
+    margin-top: 12px;
+  }
+  .recentTop p {
+    font-size: 11px;
+  }
+  .recentTop button {
+    font-size: 10px;
+  }
+  .recentbox {
+    height: 45vh;
+    width: 80vw;
+  }
+  .add {
+    width: 80vw;
+    margin: 1vw;
+    height: 5vh;
+  }
+  canvas {
+    height: 314px;
+    width: 305px;
+    max-height: 107vh;
+    max-width: 128vw;
+    top: 6vh;
+    left: 1vw;
+    font-size: 7px;
+  }
+  .addTask{
+    width: 67vw;
+    height: 43vh;
+    left: 25vw;
+    bottom: 70vh;
+  }
+  .addTask input{
+    height: 4vh;
+    width: 57vw;
+    margin-left: 3vw;
+    margin-bottom: 50px;
+  }
+ form button {
+    border: none;
+    margin: 10px;
+    width: 47px;
+    border-radius:3px;
+    background-color: #333333;
+    color: white;
+    height: 27px;
+}
+
+  .slabel {
+    width: 30vw;
+    height: 4vh;
+    margin-left:8px ;
+    background-color: #001a04;
+    color: wheat;
+  }
+  .elabel{
+    width: 28vw;
+    height: 4vh;
+    margin-left: 129px;
+    background-color: #001a04;
+    color: wheat;
+  }
+  h1 {
+    height: 3vh;
+    margin-top: -3vh;
+    margin-left: 25px;
+  }
+  .dshNav input {
+    height: 3vh;
+    width: 50vw;
+    margin-left: -9vw;
+  
+  }
+  .logo p {
+    padding-top: 1.7vw;
+    font-size: 3.7vw;
+    color: wheat;
+  }
+
+  .tab{
+    grid-template-columns: repeat(1,0.5fr);
+    grid-template-rows: repeat(1,0.5fr);
+  }
+}
+

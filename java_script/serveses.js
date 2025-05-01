@@ -24,13 +24,11 @@ let toorcount = 0;
 
 function toorofTheWebsite() {
   const fristvisite = JSON.parse(localStorage.getItem("fristTimeVisite"));
-  console.log(fristvisite);
 
   function counter() {
     toorcount++;
     toorBlock.remove();
     toor(fristvisite);
-    console.log(toorcount);
   }
   if (fristvisite === null) {
     localStorage.setItem("fristTimeVisite", JSON.stringify(false));
@@ -40,7 +38,6 @@ function toorofTheWebsite() {
     toorBlock.setAttribute("class", "toor_block");
 
     if (fristvisite === null || (fristvisite === false && toorcount === 0)) {
-      console.log(toorcount);
 
       toorBlock.innerHTML = `<p>Click here to <strong>Add a Task</strong > <i>></i></p>`;
       toorBlock.style.position = "absolute";
@@ -542,12 +539,10 @@ let allData = [];
 for (let index = 0; index < localStorage.length; index++) {
   let key = localStorage.key(index);
   if (key !== "fristTimeVisite") {
-    console.log(key);
     let dataa = JSON.parse(localStorage.getItem(key));
     allData.push(dataa);
   }
 }
-console.log(allData.length);
 
 function searching() {
   let searchBar = document.querySelector(".searchbar");
@@ -692,14 +687,19 @@ function updatechart() {
       myChart.data.datasets[0].data = fetchallData();
       myChart.update();
       canvasgraph.style.maxHeight = "78vh";
-      canvasgraph.style.maxWidth = "43vw";
+      // canvasgraph.style.maxWidth = "43vw";
+      canvasgraph.style.width = window.innerWidth < 600 ? "305px" : "43vw";
       myChart.resize();
       cheack = 1;
     } else {
       myChart.data.datasets[0].data = fetchallData();
       myChart.update();
       canvasgraph.style.maxHeight = "38vh";
-      canvasgraph.style.maxWidth = "33vw";
+      // canvasgraph.style.maxWidth = "33vw";
+      // height: 314px;
+    // width: 305px;
+      canvasgraph.style.width = window.innerWidth < 600 ? "580px" : "33vw";
+
       myChart.resize();
       cheack = 0;
     }

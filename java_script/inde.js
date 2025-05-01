@@ -1,22 +1,22 @@
 let imgobject = {
-  1: `<div class="mobile2"><img  loading="lazy"  src="new img/img1.webp" alt="mobile2" ></div>`,
-  2: '<div class="mobile2"><img  loading="lazy"  src="new img/images1.webp" alt="mobile2" ;"></div>',
-  3: '<div class="mobile2"><img  loading="lazy"  src="new img/img2.webp" alt="mobile2" ;"></div>',
-  4: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage1.webp" alt="mobile2" ;"></div>',
-  5: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage2.webp" alt="mobile2" ;"></div>',
-  6: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage3.webp" alt="mobile2" ;"></div>',
-  7: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage4.webp" alt="mobile2" ;"></div>',
-  8: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage5.webp" alt="mobile2" ;"></div>',
-  9: '<div class="mobile2"><img  loading="lazy"  src="new img/myimage6.webp" alt="mobile2" ;"></div>',
-  10: '<div class="mobile2"><img loading="lazy" src="new img/myimage7.webp" alt="mobile2" ;"></div>',
-  11: '<div class="mobile2"><img loading="lazy" src="new img/myimage8.webp" alt="mobile2" ;"></div>',
-  12: '<div class="mobile2"><img loading="lazy" src="new img/myimage9.webp" alt="mobile2" ;"></div>',
-  13: '<div class="mobile2"><img loading="lazy" src="new img/myimage10.webp" alt="mobile2" ;"></div>',
-  14: '<div class="mobile2"><img loading="lazy" src="new img/myimage11.webp" alt="mobile2" ;"></div>',
+  1: `"../new img/img1.webp"`,
+  2: '"new img/images1.webp" ',
+  3: '"new img/img2.webp" ',
+  4: '"new img/myimage1.webp" ',
+  5: '"new img/myimage2.webp" ',
+  6: '"new img/myimage3.webp" ',
+  7: '"new img/myimage4.webp" ',
+  8: '"new img/myimage5.webp" ',
+  9: '"new img/myimage6.webp" ',
+  10: '"new img/myimage7.webp" ',
+  11: '"new img/myimage8.webp" ',
+  12: '"new img/myimage9.webp" ',
+  13: '"new img/myimage10.webp" ',
+  14: '"new img/myimage11.webp"',
 };
 
 function changeimg() {
-  let imgmobile = document.querySelector(".imgmobile");
+  let imgcover = document.querySelector(".imgcover");
   let imgplus = 0;
   let imgplus2 = 0;
   setInterval(() => {
@@ -26,15 +26,11 @@ function changeimg() {
     } else {
       imgplus++;
     }
-    imgmobile.innerHTML = `${imgobject[imgplus]}` || ""; // agar hame value null mili to khali string rakho
+    imgcover.style.backgroundImage=`url(${imgobject[imgplus]})`; // agar hame value null mili to khali string rakho
   }, 3000);
 }
 setInterval(() => {
-  let imgmobile = document.querySelector(".imgmobile img");
-  imgmobile.className = "trans";
-
-  let img = document.querySelector(".trans");
-  img.style.animation = " roto 2.5s ease-in infinite";
+  
 }, 2800);
 changeimg();
 
@@ -98,9 +94,9 @@ function effact() {
     const r = Math.min(255, Math.max(0, 150 + x / 2));
     const g = Math.min(255, Math.max(0, 150 + y / 2));
     const b = Math.min(255, Math.max(0, 200 - x / 3));
-    let imgmobile = document.querySelector(".imgmobile");
+    let imgcover = document.querySelector(".imgcover");
     mover.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    imgmobile.style.filter = `drop-shadow(4px 8px 20px rgb(${r}, ${g}, ${b}));`;
+    imgcover.style.filter = `drop-shadow(4px 8px 20px rgb(${r}, ${g}, ${b}));`;
   });
 
   hero.addEventListener("mouseleave", () => {
@@ -123,6 +119,7 @@ function toorofTheWebsite() {
       toorBlock.innerHTML = `<p> click hear to start my serveses <i>></i></p>
       `;
       document.querySelector(".hero").appendChild(toorBlock);
+      document.querySelector('.serveses').addEventListener('click',()=>toorBlock.remove())
     }
   }
   const fristvisite = JSON.parse(localStorage.getItem("fristTimeVisite"));

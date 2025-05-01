@@ -19,7 +19,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>serveses of todo</title>
-    <link rel="shortcut icon" href="new img/images1.webp" type="image/x-icon" />
+    <link rel="shortcut icon" href="../new img/images1.webp" type="image/x-icon" />
 
     <link rel="stylesheet" href="css_file/serveses.css" />
 
@@ -52,8 +52,8 @@
               >
             </button>
             <button class="iconbut">
-             <a href="index.html" target="_blank" rel="noopener noreferrer">
-              <i class="sidenavicon material-icons" enable title="home">home</i>
+             <a href="http://127.0.0.1:5500/index.html" target="_blank" rel="noopener noreferrer">
+              <i class="sidenavicon material-icons" title="home">home</i>
 
              </a>
             </button>
@@ -76,7 +76,7 @@
           <div class="dshNav">
             <h2>Dashbord</h2>
             <div class="serach" >
-              <input type="search" title="search bar" class="searchbar"/>
+              <input type="search" title="search bar" class="searchbar" placeholder="search your task"/>
               <i class="material-symbols-outlined searchicon">search</i>
             </div>
             <i class="material-symbols-outlined bell">notifications</i>
@@ -103,19 +103,19 @@
      <form class="addTask">
       <h2>Add Task</h2>
       <input type="text"  placeholder="Enter a task " class="taskName" name="taskadd" required>
-      <div class="taskicon">
+      <!-- <div class="taskicon">
         <button class="taskbut"><i class="material-symbols-outlined" id="addsub">+</i></button>
         <label for="addsub"> Add subtask</label>
         <button type="button" class="taskbut"><i class="material-symbols-outlined">2</i></button>
         <button type="button" class="taskbut"><i class="material-symbols-outlined">3</i></button>
         <button type="button" class="taskbut proyritey"><i class="material-symbols-outlined">p</i></button>
         <button type="button" class="taskbut"><i class="material-symbols-outlined">5</i></button>
-      </div>
+      </div> add in future some fetures--> 
       <div class="dateTime">
-        <input type="time" id="stime">;
-        <label for="stime" id="label" class="slabel"><p>00:00 <span class="see">😎</span></p></label>
+        <input type="time" id="stime">
+        <label for="stime" id="label" class="slabel"><p>strat time<span class="see">😎</span></p></label>
         <input type="time" id="etime">
-        <label for="etime" id="label" class="elabel"><p>00:00 <span class="ee">😁</span></p>   </label>
+        <label for="etime" id="label" class="elabel"><p>end time<span class="ee">😁</span></p>   </label>
       </div>
       <button type="button" class="cancle">cancle</button>
       <button type="submit" class="addTodo" >add</button>

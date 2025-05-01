@@ -259,44 +259,32 @@ a:active {
   display: flex;
   align-items: center;
 }
-.imgmobile {
-  position: relative;
-  top: -42.6vh;
-  right: -5vw;
-  z-index: 1;
-  border-radius: 50px;
-}
-
-.mobile2 img {
-  width: 16vw;
-  position: absolute;
-  top: 24vh;
-  margin-left: -5vw;
-  border-radius: 20px;
-  z-index: 1;
-}
 
 .imgcover {
+  display: block;
+  height: 20vw;
+  width: 25vw;
+  background-image: url("../new img/myimage1.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   position: relative;
   top: -7.5vh;
   left: 4.1vw;
   overflow: hidden;
-  background-color: black;
   height: 66vh;
   width: 15.8vw;
-  z-index: 2;
+  min-width: 138px;
+  min-width: 163px;
+  border-radius: 10px;
 }
 .img img {
   left: 0;
   position: absolute;
   right: 2vw;
   z-index: 3;
+  overflow: hidden;
   height: 85vh;
-}
-.trans {
-  background-color: #fff;
-  cursor: pointer;
-  animation: roto 3s ease-in linear infinite;
 }
 
 .downlode {
@@ -427,31 +415,71 @@ a:active {
     transform: scale3d(2.8, 1.5, 1.5) rotate(45deg);
   }
 }
-@media screen and (max-width: 460px) {
-  .img img {
-    left: 20px;
-    top: 16.8vh;
-    width: 61vw;
-    height: 32vh;
+
+i:hover {
+  transform: scale(1.2);
+  color: rgb(3, 3, 255);
+  cursor: pointer;
+}
+#mover {
+  margin-left: 30vw;
+  width: 20px;
+  height: 20px;
+}
+
+.toor_block {
+  position: absolute;
+  z-index: 1235467;
+  top: 7vw;
+  left: 54vw;
+  width: 25vw;
+  text-align: center;
+  height: 7vh;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: large;
+  background: #e5dddd;
+  box-shadow: inset 10px 9px 13px #2a1515, inset -10px -9px 10px #9c9b9b,
+    5px 5px 15px rgb(0, 0, 0);
+  cursor: pointer;
+  animation: block 1s ease-in infinite alternate;
+}
+.toor_block i {
+  position: absolute;
+  font-size: 40px;
+  margin: 10px 3px;
+  animation: aero 3s ease-out infinite;
+}
+
+@keyframes aero {
+  0% {
+    transform: scale(1) translatey(-10px) rotate(0deg);
+    /* opacity: 0; */
+    color: red;
   }
-  .mobile2 img {
-    top: 27vh;
-    width: 25vw;
-    right: -1vw;
-    border-radius: 30px;
+  100% {
+    transform: scale(1.5) translatey(-40px) rotate(-90deg);
+    opacity: 1;
+    color: blue;
   }
+}
+@keyframes block {
+  0% {
+    transform: scale(1);
+    /* opacity: 0; */
+    background-color: red;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+    background-color: blue;
+  }
+}
+
+@media screen and (width< 660px) {
   .nav {
     margin-left: -6px;
     width: 100vw;
-  }
-  .mobile2 img {
-    height: 52vh;
-    width: 27vw;
-    margin-top: 16vw;
-  }
-  .imgmobile {
-    top: -52.6vh;
-    right: 0vw;
   }
   .hero::after {
     content: " ";
@@ -469,12 +497,19 @@ a:active {
     margin-top: 5px;
   }
   .imgcover {
-    top: 17vh;
-    left: 11.1vw;
-    width: 25.8vw;
+    top: 19.8vh;
+    left: 17.1vw;
+    width: 0vw;
+    min-width: 95px;
     height: 53.5vw;
     border-radius: 10px;
     position: absolute;
+  }
+  .img img {
+    left: 39px;
+    top: 19.8vh;
+    width: 61vw;
+    height: 32vh;
   }
   a {
     margin: 2vw 5.5px;
@@ -529,7 +564,16 @@ a:active {
   }
   .soclemidia p {
     font-size: 9px;
-    margin-left: -26px;
+    margin-left: -30px;
+    color: #6e1515;
+    margin-bottom: 7px;
+  }
+  
+  .socil{
+    margin-left: -40px;
+  }
+  .bx{
+    margin-top: -1px;
   }
   .h11 {
     height: 3.5vh;
@@ -545,7 +589,6 @@ a:active {
     width: 40vw;
     height: 3vh;
     font-size: 7px;
-    background-color: #fff;
   }
   .text1 :nth-child(2) {
     margin-left: 50px;
@@ -560,64 +603,5 @@ a:active {
   .logo img {
     border-top-left-radius: 11px;
     border-bottom-right-radius: 11px;
-  }
-}
-i:hover {
-  transform: scale(1.2);
-  color: rgb(3, 3, 255);
-  cursor: pointer;
-}
-#mover {
-  margin-left: 30vw;
-  width: 20px;
-  height: 20px;
-}
-
-.toor_block {
-  position: absolute;
-  z-index: 1235467;
-  top: 7vw;
-  left: 54vw;
-  width: 25vw;
-  text-align: center;
-  height: 7vh;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: large;
-  background: #e5dddd;
-  box-shadow: inset 10px 9px 13px #2a1515, inset -10px -9px 10px #9c9b9b,
-    5px 5px 15px rgb(0, 0, 0);
-  cursor: pointer;
-  animation: block 1s ease-in infinite alternate;
-}
-.toor_block i{
-  position: absolute;
-  font-size: 40px;
-  margin:10px 3px ;
-  animation: aero 3s ease-out infinite ;
-}
-
-@keyframes aero {
-  0%{
-    transform: scale(1) translatey(-10px) rotate(0deg);
-    /* opacity: 0; */
-    color: red;
-  }
-  100%{
-    transform: scale(1.5) translatey(-40px) rotate(-90deg);
-    opacity: 1;
-    color: blue;
-  }
-}
-@keyframes block {
-  0%{
-    transform: scale(1) ;
-    /* opacity: 0; */
-    background-color: red;
-  }
-  100%{
-    transform: scale(1.1);
-    opacity: 1;
-    background-color: blue;
   }
 }

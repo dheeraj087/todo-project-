@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -469,14 +468,13 @@ td {
 .right {
   width: 45vw;
   height: 60vh;
-
   margin-right: 5vw;
   border-bottom: 1px solid rgb(145, 145, 145);
 }
-.right p{
+.right p {
   color: rgb(156, 156, 156);
   position: relative;
-  left:10vw;
+  left: 10vw;
   bottom: -12vh;
   cursor: pointer;
   font-size: 1.7vw;
@@ -485,34 +483,34 @@ td {
   border-right: 1px solid rgb(145, 145, 145);
   width: 46.9vw;
   height: 60vh;
-  margin-left:3vw ;
+  margin-left: 3vw;
   border-bottom: 1px solid rgb(144, 144, 144);
 }
-.leftText{
+.leftText {
   font-size: 5vw;
   font-family: sans-serif;
   margin-bottom: 6vh;
 }
-.downText{
+.downText {
   font-size: 2vw;
   width: 40vw;
 }
-.fotternav{
+.fotternav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin-top: 2vh;
 }
-.socilLink{
+.socilLink {
   border: solid white 1px;
   width: 13vw;
   height: 2vw;
   border-radius: 5vw;
   text-align: center;
-  padding:0.5vw ;
+  padding: 0.5vw;
   cursor: pointer;
 }
-.singh{
+.singh {
   margin-top: 5vh;
   margin-left: 5vw;
   font-size: 5vw;
@@ -520,7 +518,121 @@ td {
   cursor: pointer;
   color: rgb(250, 146, 163);
 }
-i:hover{
+i:hover {
   transform: scale(1.2);
-  color:rgb(3, 3, 255);
+  color: rgb(3, 3, 255);
+}
+
+@media screen and (width<600px) {
+  #about_us {
+    height: 110vh;
+  }
+  .aboutimg {
+    height: 46vh;
+    left: 64vw;
+    top: -17vh;
+    border-radius: 37px 37px 37px 0px;
+  }
+  .aboutimg img {
+    margin-top: 0vh;
+  }
+  .aboutsection2 {
+    top: -15vh;
+  }
+  .leftImg {
+    left: 1vw;
+  }
+  .line {
+    left: -10px;
+  }
+  .lineicon {
+    left: 10em;
+    top: -14px;
+  }
+  .text2 p {
+    font-size: 7px;
+    margin-bottom: -24px;
+  }
+  .text3 :nth-child(2) {
+    font-size: 6px;
+  }
+  .text3 :nth-child(3) {
+    font-size: 6px;
+  }
+  .lineBelwText {
+    gap: 1px;
+  }
+  .rating {
+    height: 60vh;
+  }
+  .hedderSection {
+    height: 8vh;
+    top: 5vh;
+  }
+  .hedderSection pre {
+    font-size: 6px;
+  }
+  .video img {
+    height: 20vh;
+    width: 23vw;
+  }
+  .video p {
+    bottom: 4vh;
+    font-size: 15.5px;
+    color: red;
+  }
+  .videosection{
+    display:grid;
+    grid-template-columns: repeat(4,2fr);
+    gap: 1vw;
+    position: relative;
+  }
+  .uplodeReview {
+    flex-grow: 2;
+    position: absolute;
+    font-size: 14px;
+    width: 56vw;
+    height: 35px;
+    left: 5.6rem;
+    top: 28vh;
+    z-index: 1;
+  }
+  .footermain {
+    height: 40vh;
+  }
+  .downText {
+    font-size: 9px;
+    width: 50vw;
+  }
+  .leftText{
+    margin-bottom: 25px;   
+}
+.singh {
+  font-size: 23px;
+  margin-top: 3vh;
+    margin-left: -2vw;
+}
+footer table th, tr, td{
+  height: 3vh;
+  width: 14vw;
+  padding: 1.2vw;
+  font-size: 9px;
+}
+.right p {
+  bottom: -3vw;
+}
+.right i{
+  font-size: 8px;
+}
+.fotternav {
+  margin-top:2vh;
+  font-size: 9px;
+}
+.socilLink{
+  height: 13px;
+}
+.right,.leftfooter {
+  height: 29vh;
+}
+
 }
