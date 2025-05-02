@@ -341,12 +341,13 @@ function edit() {
           edittask.style.color = "blue";
           addTask.style.display = "block";
           but.style.display = "none";
-          eidtbut.style.display = "block";
+          eidtbut.style.display = "inline";
           eidtbut.removeEventListener("click", hendlar);
           eidtbut.addEventListener("click", hendlar);
           body.removeEventListener("click", selecttask);
         }
       }
+      setTimeout(()=>edittask.style.color = "black",2000)
     });
   }
   let eidt = document.querySelector(".eidt");
@@ -373,6 +374,7 @@ icon.addEventListener("click", (e) => {
   if (e.target.textContent === "forms_add_on") {
     addTask.style.display = "block";
     eidtbut.style.display = "none";
+    but.style.display = "inline";
   }
   if (e.target.textContent === "Delete") {
     let str = deleteTask.textContent;
@@ -706,3 +708,4 @@ function updatechart() {
   });
 }
 updatechart();
+localStorage.clear()
