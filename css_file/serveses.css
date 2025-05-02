@@ -352,7 +352,7 @@ h1 {
 }
 .elabel {
   position: absolute;
-  color: #000000;
+  color: #fdecae;
   z-index: 2;
   width: 10vw;
   height: 7vh;
@@ -361,9 +361,9 @@ h1 {
   padding: 3px;
   padding-top: 10px;
   margin-left: 19vw;
-  background-color: #ff0000;
+  background-color: #012f21;
   font-family: "monospace", sans-serif;
-  font-size: 1.4vw;
+  font-size: 0.7rem;
   line-height: normal;
 }
 .elabel p {
@@ -371,22 +371,22 @@ h1 {
 }
 .ee {
   display: inline;
-  margin-left: 2.8vw;
+  margin-left: 1.8vw;
 }
 .slabel {
   position: absolute;
-  color: #000000;
+  color: #fdecae;
   z-index: 2;
   width: 10vw;
   height: 7vh;
   border-radius: 20px;
   text-align: right;
-  padding: 3px;
+  padding: 6px;
   padding-top: 10px;
-  margin-left: 8vw;
-  background-color: #ff0000;
+  margin-left: 7vw;
+  background-color: #012f21;
   font-family: "monospace", sans-serif;
-  font-size: 1.4vw;
+  font-size: 0.7rem;
   line-height: normal;
 }
 .slabel p {
@@ -394,7 +394,7 @@ h1 {
 }
 .see {
   display: inline;
-  margin-left: 2.8vw;
+  margin-left: 1.8vw;
 }
 .errormes{
   display: block;
@@ -492,6 +492,7 @@ form button {
 @media screen and (max-width: 750px) {
   .main{
     width: 105vw;
+    height: 105vh;
   }
   .mainbox {
     width: 95vw;

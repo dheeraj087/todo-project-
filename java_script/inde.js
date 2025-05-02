@@ -83,20 +83,12 @@ function effact() {
     const y = e.clientY - (top + height / 2);
 
     // Rotation calculation (adjust multiplier for more/less rotation)
-    const rotateX = (-y / height) * 30; // negative to invert
-    const rotateY = (x / width) * 30;
+    const rotateX = (-y / height) * 40; // negative to invert
+    const rotateY = (x / width) * 20;
 
     mover.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${
       (x / width) * 25
     }deg)`;
-
-    // Dynamic background color
-    const r = Math.min(255, Math.max(0, 150 + x / 2));
-    const g = Math.min(255, Math.max(0, 150 + y / 2));
-    const b = Math.min(255, Math.max(0, 200 - x / 3));
-    let imgcover = document.querySelector(".imgcover");
-    mover.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    imgcover.style.filter = `drop-shadow(4px 8px 20px rgb(${r}, ${g}, ${b}));`;
   });
 
   hero.addEventListener("mouseleave", () => {
@@ -126,3 +118,11 @@ function toorofTheWebsite() {
   toor(fristvisite);
 }
 toorofTheWebsite();
+if (window.innerWidth<=550) {
+  let toor_block =document.querySelector('.toor_block')
+  toor_block.style.color='white'
+  toor_block.style.height='15px'
+  toor_block.style.left='57vw'
+  toor_block.style.fontSize='8px'
+  toor_block.style.top='5vh'
+}

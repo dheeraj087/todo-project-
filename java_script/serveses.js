@@ -30,6 +30,7 @@ function toorofTheWebsite() {
     toorBlock.remove();
     toor(fristvisite);
   }
+  const mq = window.matchMedia("(max-width:550px)");
   if (fristvisite === null) {
     localStorage.setItem("fristTimeVisite", JSON.stringify(false));
   }
@@ -38,11 +39,18 @@ function toorofTheWebsite() {
     toorBlock.setAttribute("class", "toor_block");
 
     if (fristvisite === null || (fristvisite === false && toorcount === 0)) {
-
       toorBlock.innerHTML = `<p>Click here to <strong>Add a Task</strong > <i>></i></p>`;
       toorBlock.style.position = "absolute";
       toorBlock.style.top = "47vh";
       toorBlock.style.left = "2vw";
+      // responsive our website
+      if (window.innerWidth <= 550) {
+        toorBlock.innerHTML = `<i class='dh'>></i>Add a Task`;
+        toorBlock.style.top = "32vh";
+        toorBlock.style.fontSize = "6px";
+        toorBlock.style.height = "7px";
+        toorBlock.style.left = "2vw";
+      }
       document.querySelector(".main").appendChild(toorBlock);
       document.querySelector("#tooradd").addEventListener(
         "click",
@@ -57,6 +65,14 @@ function toorofTheWebsite() {
       toorBlock.innerHTML = `<p>Click here to <strong>add a Task</strong > <i>></i></p>`;
       toorBlock.style.top = "67vh";
       toorBlock.style.left = "25vw";
+      // responsive our website
+      if (window.innerWidth <= 550) {
+        toorBlock.innerHTML = `add a Task<i>></i>`;
+        toorBlock.style.top = "43vh";
+        toorBlock.style.fontSize = "8px";
+        toorBlock.style.height = "7px";
+        toorBlock.style.left = "40vw";
+      }
       document.querySelector(".main").appendChild(toorBlock);
       but.addEventListener(
         "click",
@@ -71,6 +87,15 @@ function toorofTheWebsite() {
       toorBlock.innerHTML = `<p>frist Click here to <strong>edit a Task</strong > <i>></i></p>`;
       toorBlock.style.top = "40vh";
       toorBlock.style.left = "24vw";
+
+      if (mq.matches) {
+        toorBlock.innerHTML = `frist Click here to edit a Task <i>></i>`;
+        toorBlock.style.top = "22vh";
+        toorBlock.style.left = "54vw";
+        toorBlock.style.fontSize = "8px";
+        toorBlock.style.height = "6px";
+        toorBlock.style.paddingBottom = "16px";
+      }
       document.querySelector(".main").appendChild(toorBlock);
       document.querySelector(".tooredit").addEventListener(
         "click",
@@ -86,6 +111,14 @@ function toorofTheWebsite() {
       toorBlock.style.top = "48vh";
       toorBlock.style.fontSize = "9px";
       toorBlock.style.left = "20vw";
+      if (mq.matches) {
+        toorBlock.innerHTML = `then within a 1s Click here to edti Task<i>></i>`;
+        toorBlock.style.top = "25vh";
+        toorBlock.style.left = "24vw";
+        toorBlock.style.fontSize = "8px";
+        toorBlock.style.height = "6px";
+        toorBlock.style.paddingBottom = "16px";
+      }
       document.querySelector(".main").appendChild(toorBlock);
       document.querySelector(".add")?.addEventListener(
         "click",
@@ -101,6 +134,14 @@ function toorofTheWebsite() {
       toorBlock.style.top = "69vh";
       toorBlock.style.fontSize = "9px";
       toorBlock.style.left = "24vw";
+      if (mq.matches) {
+        toorBlock.innerHTML = `then within a 1s Click here to edti Task<i>></i>`;
+        toorBlock.style.top = "45vh";
+        toorBlock.style.left = "9vw";
+        toorBlock.style.fontSize = "8px";
+        toorBlock.style.height = "6px";
+        toorBlock.style.paddingBottom = "16px";
+      }
       document.querySelector(".main").appendChild(toorBlock);
       eidtbut.addEventListener(
         "click",
@@ -116,6 +157,14 @@ function toorofTheWebsite() {
       toorBlock.style.top = "48vh";
       toorBlock.style.fontSize = "9px";
       toorBlock.style.left = "20vw";
+      if (mq.matches) {
+        toorBlock.innerHTML = `then within a 1s Click here to delete Task<i>></i>`;
+        toorBlock.style.top = "25.8vh";
+        toorBlock.style.left = "24vw";
+        toorBlock.style.fontSize = "8px";
+        toorBlock.style.height = "6px";
+        toorBlock.style.paddingBottom = "16px";
+      }
       document.querySelector(".main").appendChild(toorBlock);
       document.querySelector(".add")?.addEventListener(
         "click",
@@ -131,6 +180,14 @@ function toorofTheWebsite() {
       toorBlock.style.top = "93vh";
       toorBlock.style.fontSize = "9px";
       toorBlock.style.left = "-1vw";
+      if (mq.matches) {
+        toorBlock.innerHTML = `delete Task<i>></i>`;
+        toorBlock.style.top = "70vh";
+        toorBlock.style.left = "-3vw";
+        toorBlock.style.fontSize = "8px";
+        toorBlock.style.height = "6px";
+        toorBlock.style.paddingBottom = "16px";
+      }
       document.querySelector(".main").appendChild(toorBlock);
       document.querySelector(".delete").addEventListener(
         "click",
@@ -146,6 +203,14 @@ function toorofTheWebsite() {
       toorBlock.style.top = "48vh";
       toorBlock.style.fontSize = "9px";
       toorBlock.style.left = "45vw";
+      if (mq.matches) {
+        toorBlock.innerHTML = `Click here to big size of graph<i>></i>`;
+        toorBlock.style.top = "79vh";
+        toorBlock.style.left = "25vw";
+        toorBlock.style.fontSize = "8px";
+        toorBlock.style.height = "6px";
+        toorBlock.style.paddingBottom = "16px";
+      }
       document.querySelector(".main").appendChild(toorBlock);
       document.querySelector("canvas").addEventListener(
         "click",
@@ -206,24 +271,24 @@ function showTasksFromLocalStorage() {
     }
   }
 }
-
+let remove = null;
 // add task form enter button
 function addTodo() {
-  name.addEventListener("keydown", function (e) {
+  remove = name.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
       toorcount = 1;
-      let validName = name.value;
+      let validName = name.value.trim();
       if (validName !== "") {
         recBoxStr.style.display = "none";
-        let obj = new allobj(name.value);
+        let obj = new allobj(name.value.trim());
         alltodo.push(obj);
-        allTaskSaveObject.taskName = alltodo[i].name;
+        allTaskSaveObject.taskName = alltodo[i].name.trim();
         allTaskSaveObject.addDate = date.toLocaleDateString();
         loclestoragesave(allTaskSaveObject);
         let card = document.createElement("div");
         card.setAttribute("class", "add");
         card.innerHTML = `<div class="addinput taskedit"> <input type="checkbox"/> ${
-          JSON.parse(localStorage.getItem(name.value)).taskName
+          JSON.parse(localStorage.getItem(name.value.trim())).taskName
         }</div>
     `;
         body.appendChild(card);
@@ -246,19 +311,19 @@ function addTodo() {
 
   // add task to  mouse click
   but.addEventListener("click", function (e) {
-    let validName = name.value;
+    let validName = name.value.trim();
     if (validName !== "") {
       toorcount == 1;
       recBoxStr.style.display = "none";
-      let obj = new allobj(name.value);
+      let obj = new allobj(name.value.trim());
       alltodo.push(obj);
-      allTaskSaveObject.taskName = alltodo[i].name;
+      allTaskSaveObject.taskName = alltodo[i].name.trim();
       allTaskSaveObject.addDate = date.toLocaleDateString();
       loclestoragesave(allTaskSaveObject);
       let card = document.createElement("div");
       card.setAttribute("class", "add");
       card.innerHTML = `<div class="addinput taskedit"> <input type="checkbox"/> ${
-        JSON.parse(localStorage.getItem(name.value)).taskName
+        JSON.parse(localStorage.getItem(name.value.trim())).taskName
       }</div>
     `;
       body.appendChild(card);
@@ -320,12 +385,12 @@ function edit() {
         let editTaskSave = JSON.parse(
           localStorage.getItem(edittask.textContent.trim())
         );
-        editTaskSave.taskName = name.value;
+        editTaskSave.taskName = name.value.trim();
         localStorage.removeItem(edittask.textContent.trim());
-        localStorage.setItem(name.value, JSON.stringify(editTaskSave));
+        localStorage.setItem(name.value.trim(), JSON.stringify(editTaskSave));
         edittask.innerHTML = `<div class="addinput"> <input type="checkbox"/> ${name.value.trim()}</div>
         `;
-        alltodo.name = name.value;
+        alltodo.name = name.value.trim();
         edittask.style.color = "black";
         addTask.style.display = "none";
         but.style.display = "block";
@@ -347,7 +412,7 @@ function edit() {
           body.removeEventListener("click", selecttask);
         }
       }
-      setTimeout(()=>edittask.style.color = "black",2000)
+      setTimeout(() => (edittask.style.color = "black"), 2000);
     });
   }
   let eidt = document.querySelector(".eidt");
@@ -545,7 +610,6 @@ for (let index = 0; index < localStorage.length; index++) {
     allData.push(dataa);
   }
 }
-
 function searching() {
   let searchBar = document.querySelector(".searchbar");
   searchBar.addEventListener("input", (e) => {
@@ -560,7 +624,9 @@ function searching() {
 
   function searchData(searchstr, data, appendChildData) {
     // hame sa jabbhi kahi se api se data la rahe he ya to kuchhbhi to usame chake kar le ki kry hai ki nhi
-
+    appendChildData.addEventListener("change", (e) => {
+      document.querySelector(".searchbar").innerHTML = "";
+    });
     let filtered = data.filter((item) =>
       item?.taskName?.toLowerCase().includes(searchstr.toLowerCase())
     );
@@ -682,29 +748,36 @@ function chartd() {
 chartd();
 function updatechart() {
   let cheack = 0;
+  const mq = window.matchMedia("(max-width: 550px)");
 
   const canvasgraph = document.querySelector("canvas");
-  canvasgraph.addEventListener("click", (e) => {
+ const graphresize= (e) => {
     if (cheack === 0) {
       myChart.data.datasets[0].data = fetchallData();
       myChart.update();
+
+      // Desktop view
       canvasgraph.style.maxHeight = "78vh";
-      // canvasgraph.style.maxWidth = "43vw";
-      canvasgraph.style.width = window.innerWidth < 600 ? "305px" : "43vw";
+      canvasgraph.style.maxWidth = "43vw";
+      canvasgraph.style.width = "43vw";
+
       myChart.resize();
       cheack = 1;
     } else {
       myChart.data.datasets[0].data = fetchallData();
       myChart.update();
-      canvasgraph.style.maxHeight = "38vh";
-      // canvasgraph.style.maxWidth = "33vw";
-      // height: 314px;
-    // width: 305px;
-      canvasgraph.style.width = window.innerWidth < 600 ? "580px" : "33vw";
 
+      // Desktop view
+      canvasgraph.style.maxHeight = "38vh";
+      canvasgraph.style.maxWidth = "33vw";
+      canvasgraph.style.width = "33vw";
       myChart.resize();
       cheack = 0;
     }
-  });
+  }
+  canvasgraph.addEventListener("click",graphresize);
+  if (mq.matches){
+canvasgraph.removeEventListener('click',graphresize)
+  }
 }
 updatechart();
