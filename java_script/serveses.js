@@ -706,3 +706,4 @@ function updatechart() {
   });
 }
 updatechart();
+localStorage.clear()
