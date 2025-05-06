@@ -605,3 +605,15 @@ i:hover {
     border-bottom-right-radius: 11px;
   }
 }
+
+.allProject{
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  font-family: "poppins", "sans-serif";}
+.allProject option{
+  background-color: transparent;
+  color: #000;
+  outline: none;
+}

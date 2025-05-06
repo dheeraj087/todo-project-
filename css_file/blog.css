@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "sans-serif";
+  color-scheme: black, white;
+}
+main {
+  background-color: #000;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+nav {
+  display: flex;
+  margin-right: 10px;
+  justify-content: space-between;
+  width: 100%;
+  height: 10vh;
+  border-bottom: 1px solid rgb(6, 1, 29);
+  margin-top: 12px;
+}
+#webName {
+  flex-grow: 1;
+  text-transform: capitalize;
+  font-family: "Poppins", "Poppins Fallback";
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+}
+nav input {
+  margin: 0px 20px;
+  height: 30px;
+  width: 16em;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding: 8px;
+}
+.topHeading {
+  margin: 30px 44%;
+}
+.cards {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+}
+.blog_card img {
+  width: 100%;
+  height: 26vh;
+  border-radius: 10px;
+}
+.blog_card {
+  margin-left: 2em;
+  width: 25vw;
+  height: 70vh;
+  background-color: #3e3e3e;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgb(87, 87, 87);
+  color: rgb(255, 255, 255);
+  margin-bottom: 50px;
+}
+.imgdiv {
+  width: 100%;
+  height: 27vh;
+  border-radius: 10px;
+  background-image: url("../blog img/js\ poster.png");
+  background-position: top;
+  background-size: cover;
+  text-overflow: ellipsis;
+  background-repeat: no-repeat;
+}
+.blog_card h1 {
+  font-size: 19px;
+  height: 10vh;
+  width: 100%;
+  margin: 7px 0 38px 1px;
+  font-style: normal;
+  line-height: 27px;
+  font-weight: 700;
+  color: rgb(249, 250, 251);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog_card p {
+  width: 100%;
+  font-size: 14px;
+  overflow: hidden;
+  /* /* text-overflow: ellipsis; single line me .... lane ke liye hota hai  */
+  /* white-space: nowrap; ⬅️ ये बहुत जरूरी है */
+  color: rgb(161, 161, 170);
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* कितनी लाइन तक दिखाना है */
+  -webkit-box-orient: vertical;
+  line-height: 1.4em; /* Optional: better spacing */
+}
+.blog_card button {
+  margin: 19px 9px;
+  height: 8vh;
+  width: 24vw;
+  border-radius: 7px;
+  background-color: azure;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+.blog_card button a {
+  color: #000;
+  font-size: 20px;
+  text-decoration: none;
+}
+.blog-footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-about,
+.footer-links,
+.footer-social {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-social h3 {
+  margin-bottom: 10px;
+}
+
+.footer-about p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+  color: #fff;
+}
+
+.footer-social .social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social a {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  color: #888;
+  font-size: 14px;
+}
+@media screen and (width<600px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .blog_card{
+    width: 100%;
+    height: 90vh;
+    margin-left: 1vw;
+  }
+  .blog_card button{
+    width: 95%;
+  }
+}

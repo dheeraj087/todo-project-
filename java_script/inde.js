@@ -126,3 +126,12 @@ if (window.innerWidth<=550) {
   toor_block.style.fontSize='8px'
   toor_block.style.top='5vh'
 }
+function allProject() {
+  let option =document.querySelector('.allProject')
+  option.addEventListener('change',(e)=>{
+    if (e.target.value!=="") {
+      window.open(e.target.value,'_blank')
+    }
+  })
+}
+allProject()

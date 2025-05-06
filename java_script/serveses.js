@@ -63,8 +63,8 @@ function toorofTheWebsite() {
     if (fristvisite === null || (fristvisite === false && toorcount === 1)) {
       toorBlock.style.position = "absolute";
       toorBlock.innerHTML = `<p>Click here to <strong>add a Task</strong > <i>></i></p>`;
-      toorBlock.style.top = "67vh";
-      toorBlock.style.left = "25vw";
+      toorBlock.style.top = "63vh";
+      toorBlock.style.left = "30vw";
       // responsive our website
       if (window.innerWidth <= 550) {
         toorBlock.innerHTML = `add a Task<i>></i>`;
@@ -131,9 +131,9 @@ function toorofTheWebsite() {
     if (fristvisite === null || (fristvisite === false && toorcount === 4)) {
       toorBlock.style.position = "absolute";
       toorBlock.innerHTML = `<p>Click here to edti Task<i>></i></p>`;
-      toorBlock.style.top = "69vh";
+      toorBlock.style.top = "62vh";
       toorBlock.style.fontSize = "9px";
-      toorBlock.style.left = "24vw";
+      toorBlock.style.left = "34vw";
       if (mq.matches) {
         toorBlock.innerHTML = `then within a 1s Click here to edti Task<i>></i>`;
         toorBlock.style.top = "45vh";
@@ -491,16 +491,18 @@ function deleteCompletedTask() {
       continue;
     }
     let news = new Date(data.completeTime);
+    let naws = new Date();
     news.setDate(news.getDate() + 1);
-    delay = Math.abs(news.getTime() - new Date(data.completeTime).getTime());
-    setTimeout(() => {
+    if (news.getTime() <= naws.toString()) {
       if (data.complete === true) {
         localStorage.removeItem(key);
       }
-    }, delay);
+    }
   }
 }
-deleteCompletedTask();
+window.addEventListener("load", (e) => {
+  deleteCompletedTask();
+});
 //  notifeaction system
 function checknotifaction() {
   if ("Notification" in window) {
@@ -751,7 +753,7 @@ function updatechart() {
   const mq = window.matchMedia("(max-width: 550px)");
 
   const canvasgraph = document.querySelector("canvas");
- const graphresize= (e) => {
+  const graphresize = (e) => {
     if (cheack === 0) {
       myChart.data.datasets[0].data = fetchallData();
       myChart.update();
@@ -774,10 +776,10 @@ function updatechart() {
       myChart.resize();
       cheack = 0;
     }
-  }
-  canvasgraph.addEventListener("click",graphresize);
-  if (mq.matches){
-canvasgraph.removeEventListener('click',graphresize)
+  };
+  canvasgraph.addEventListener("click", graphresize);
+  if (mq.matches) {
+    canvasgraph.removeEventListener("click", graphresize);
   }
 }
 updatechart();
