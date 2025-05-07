@@ -225,17 +225,43 @@ article ul{
   margin-top: 30px;
   color: white;
 }
-@media screen and (width<600px) {
+article h2{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: antiquewhite;
+}
+@media screen and (max-width:500px) {
   .cards {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    margin-top: -100px;
   }
   .blog_card {
-    width: 100%;
-    height: 90vh;
-    margin-left: 1vw;
+    width: 97%;
+    height: 61vh;
+    margin:50px auto ;
+      }
+  .blog_card h1 {
+    font-size: 19px;
+    height: 5vh;
   }
   .blog_card button {
     width: 95%;
   }
+  article
+  {
+    width: 90%;
+    padding: 20px;
+  }
+  .img{
+    height: 37vh;
+  }
+  .lastcote {
+    margin-left: 30%;
+  }
+.tag span{
+margin-left: 5px;
+font-size: 10px;
+}
 }
