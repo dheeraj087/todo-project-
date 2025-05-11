@@ -27,7 +27,8 @@ nav {
 }
 
 button.lang{
-    width: 99px;
+  width: 99px;
+  height: 32px;
 }
 .bottomnav{
   width: 16em;
@@ -274,6 +275,9 @@ article h3 {
   margin-left: 7em;
 }
 @media screen and (max-width:500px) {
+  .img{
+    box-shadow: none;
+  }
   .cards {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
